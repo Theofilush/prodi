@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Standar7 extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
@@ -14,14 +14,16 @@ class Dashboard extends CI_Controller {
 	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
+		$query = $this->M_dokumen->get_dokumen(); 
 
 		$dataHalaman = array(   
 		'pagea'	=> "beranda",
-          'da' => $kue   
+          'da' => $kue,
+          'query'   => $query
         );
-
+ 
 		$this->load->view('dashboard/v_header',$dataHalaman);
-		$this->load->view('dashboard/v_dashboard');
+		$this->load->view('dokumen/standar/v_standar7');
 		$this->load->view('dashboard/v_footer');
 	}
 }

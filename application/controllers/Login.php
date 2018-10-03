@@ -9,12 +9,14 @@ class Login extends CI_Controller {
 
 	public function index(){
 		$tampil_prodi = $this->M_login->tampil_prodi(); 
+		$tampil_jabatan= $this->M_dokumen->tampil_jabatan(); 
 		$data = array(
-			'tampil_prodi'=> $tampil_prodi
+			'tampil_prodi'=> $tampil_prodi,
+			'tampil_jabatan'=>$tampil_jabatan
 		);
 		$this->load->view('login/v_login',$data);
 		if($this->session->userdata('status') == "login"){
-			redirect(site_url("dashboard"));
+			redirect(site_url("Home"));
 		}
 	} //$this->load->library('user_agent');
 	//redirect($this->agent->referrer());
@@ -46,7 +48,7 @@ class Login extends CI_Controller {
 				'status' => "login"
 				);
 				$this->session->set_userdata($data_session);	
-				redirect(site_url("dashboard"),'refresh');				
+				redirect(site_url("Home"),'refresh');				
 			}
 			else{
 				$this->session->set_flashdata('notification','Maaf Password Salah.');
@@ -72,6 +74,7 @@ class Login extends CI_Controller {
 			$_email = $this->input->post('email', TRUE);
 			$_username = $this->input->post('username', TRUE);
 			$_prodi = $this->input->post('prodi', TRUE);
+			$_jabatan = $this->input->post('jabatan', TRUE);
 			$_password = $this->input->post('password', TRUE);
 			$_cpassword = $this->input->post('cpassword', TRUE);
 			if ($_password == $_cpassword) {
@@ -79,9 +82,9 @@ class Login extends CI_Controller {
 				  'NIDN' => $_nidn,
 				  'email' => $_email,
 				  'username' => $_username,
-				  'prodi'=> $_prodi,
+				  'prodi'=> $_prodi,				  
 				  'password'=> get_hash($_password),
-				  'author'=> 'dosen'
+				  'author'=> $_jabatan
 				); 
 				//panggil fungsi simpanUser pada User_model
 				$query= $this->m_login->simpanUser($data);

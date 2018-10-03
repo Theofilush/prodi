@@ -11,6 +11,7 @@
 
     <link href="<?php echo base_url() ?>asett/dist/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asett/dist/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Ubuntu|Roboto" rel="stylesheet"> 
     <link href="<?php echo base_url() ?>asett/plugins/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <!--<link href="<?php echo base_url() ?>asett/plugins/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">-->
     <link href="<?php echo base_url() ?>asett/plugins/iCheck/skins/all.css" rel="stylesheet">
@@ -21,6 +22,7 @@
     <link href="<?php echo base_url() ?>asett/plugins/pnotify/dist/pnotify.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asett/plugins/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asett/dist/css/custom.css" rel="stylesheet">
+    <!-- <script type="text/javascript" src="http://www.appelsiini.net/projects/chained/jquery.chained.js?v=0.9.10"></script> -->
   </head>
 
   <body class="nav-md"><?php foreach($da as $row){$buba= $row->author;$bubi= $row->username;$bubc= $row->NIDN; }  ?>
@@ -29,7 +31,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="<?php echo site_url() ?>dashboard" class="site_title"><i class="fa fa-institution"></i> <span>Informatika</span></a>
+              <a href="<?php echo site_url() ?>Home" class="site_title"><i class="fa fa-institution"></i> <span>Akreditasi</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -52,32 +54,27 @@
               <div class="menu_section">
                 <h3>Dokumen</h3>
                 <ul class="nav side-menu">
-                  <li><a href="<?php echo site_url() ?>dashboard"><i class="fa fa-home"></i>Beranda</a></li>
-                  <li><a><i class="fa fa-edit"></i>SumberDaya Penelitian <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="<?php echo site_url() ?>Home"><i class="fa fa-home"></i>Dashboard</a></li>
+                  <!-- <li><a href="<?php echo site_url() ?>Pengisian"><i class="fa fa-plus-circle"></i>Pengisian Dokumen</a></li> -->
+                  <li><a><i class="fa fa-terminal"></i> Borang <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo site_url() ?>penelitian/PenelitianDanaUPJ">Sumber Dana UPJ</a></li>
-                      <li><a href="<?php echo site_url() ?>penelitian/PenelitianDanaNonUPJ">Sumber Dana non-UPJ</a></li>                      
+                      <li><a href="<?php echo site_url() ?>borang/Standar1">Standar 1 - VMT2S</a></li>
+                      <li><a href="<?php echo site_url() ?>borang/Standar2">Standar 2 - Tata Pamong</a></li>
+                      <li><a href="<?php echo site_url() ?>borang/Standar3">Standar 3 - Mahasiswa dan Lulusan</a></li>
+                      <li><a href="<?php echo site_url() ?>borang/Standar4">Standar 4 - SDM</a></li>
+                      <li><a href="<?php echo site_url() ?>borang/Standar5">Standar 5 - Kurikulum</a></li>
+                      <li><a href="<?php echo site_url() ?>borang/Standar6">Standar 6 - Pembiayaan</a></li>
+                      <li><a href="<?php echo site_url() ?>borang/Standar7">Standar 7 - P2M</a></li>
+                      <li><a href="<?php echo site_url() ?>borang/Standar8">Standar 8 - Kerjasama</a></li>
+                      <li><a href="<?php echo site_url() ?>borang/Standar9">Standar 9 - Capaian</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i>Publikasi <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="<?php echo site_url() ?>publikasi/PublikasiJurnal">Publikasi Jurnal</a></li>
-                      <li><a href="<?php echo site_url() ?>publikasi/BukuAjar">Buku Ajar/Teks</a></li>
-                      <li><a href="<?php echo site_url() ?>publikasi/Pemakalah">Pemakalah Forum Ilmiah</a></li>
-                      <li><a href="<?php echo site_url() ?>publikasi/HakKekayaanIntelektual">Hak Kekayaan Intelektual (HKI)</a></li>
-                      <li><a href="<?php echo site_url() ?>publikasi/LuaranLain">Luaran Lain</a></li>
-                    </ul>
-                  </li>                
-                  <li><a><i class="fa fa-clone"></i>SumberDaya Pengabdian<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="<?php echo site_url() ?>pengabdian/PengabdianDanaUPJ">Sumber Dana UPJ</a></li>
-                      <li><a href="<?php echo site_url() ?>pengabdian/PengabdianDanaNonUPJ">Sumber Dana non UPJ</a></li>
-                    </ul>
-                  </li>
+                  <li><a href="<?php echo site_url() ?>Pencarian"><i class="fa fa-search"></i>Pencarian Dokumen</a></li>
+                                    
                   <?php
                     if($buba == 'administrator'){
                   ?>
-                   <li><a href="<?php echo site_url() ?>users"><i class="fa fa-users"></i>Manajemen User</a></li>
+                   <li><a href="<?php echo site_url() ?>users"><i class="fa fa-users"></i>Users</a></li>
                   <?php
                     }
                   ?>

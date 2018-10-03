@@ -10,9 +10,10 @@
         <!-- /footer content -->
       </div>
       <span id="demo-form2" style="display:none;"></span>
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
     <script src="<?php echo base_url() ?>asett/dist/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>asett/dist/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url() ?>asett/plugins//fastclick/lib/fastclick.js"></script>
+    <script src="<?php echo base_url() ?>asett/plugins/fastclick/lib/fastclick.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/nprogress/nprogress.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -27,6 +28,17 @@
     <script src="<?php echo base_url() ?>asett/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="<?php echo base_url() ?>asett/dist/js/custom.js"></script>
   <script>
+    function cek_bunyi() {
+        var dropdown = document.getElementById("operasi1");
+        var current_value = dropdown.options[dropdown.selectedIndex].value;
+
+        if (current_value == "sembunyi") {
+            document.getElementById("akuhidding").style.display = "block";
+        }
+        else {
+            document.getElementById("akuhidding").style.display = "none";
+        }
+    };
     $('.select2_ok').select2({
       placeholder: 'Your NULL value caption',
       allowClear: true  
@@ -141,7 +153,10 @@
                 }
             });
         }            
-    }
+    }   
+    function DataEdt() {
+      win2 = window.open("<?php echo base_url() ?>add/Dokumen", "", "width=800, height=500, scrollbars, status");
+    } 
   </script>
   </body>
 </html>

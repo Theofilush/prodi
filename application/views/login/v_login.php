@@ -25,9 +25,9 @@
         <div class="animate form login_form">
           <section class="login_content">
             <form action="<?php echo site_url('login/aksi_login'); ?>" method="post">
-              <h1>Login Form</h1>
+              <h1>Borang Prodi</h1>
               <img src="<?php echo base_url() ?>asett/images/logo.png">
-              <p style="color:red;text-align:center;padding: 10px;"><?php echo $this->session->flashdata('notification')?></p>
+              <p style="color:green;text-align:center;padding: 10px;"><?php echo $this->session->flashdata('notification')?></p>
               <div>
                 <input type="text" name="username" class="form-control" placeholder="NIDN / Email" required="" />
               </div>
@@ -83,6 +83,18 @@
 												 }
 											?>
 									</select>
+              </div>
+              <div>
+                <select class="form-control" style="width: 100%; margin-bottom:20px;" data-placeholder="Pilih Jabatan" name="jabatan">
+                      <option>Pilih Jabatan</option>
+                      <?php 
+                        foreach($tampil_jabatan as $row){
+                      ?>  
+                        <option><?php echo $row->author; ?></option>
+                      <?php
+                         }
+                      ?>
+                  </select>
               </div>
               <div>
                 <input type="password" name="password" class="form-control" placeholder="Password" required="" />
