@@ -4257,3 +4257,50 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
 }
 /** /bootstrap-datetimepicker **/
 
+.floatku{
+    float: left;
+}
+td{
+    //font-size: 12px;
+}
+.titiknya{
+    margin: 0;
+    padding-left: 5px;
+}
+.font_color_blue{
+    color: #2c5e7b;
+}
+.font_color_green{
+    color: #27ae60;
+}
+.font_color_red{
+    color: #f83812;
+}
+.btn-hitam{
+    background-color:#000;
+    color:#fff;
+}
+a.link_url{ 
+    color: blue;    
+}
+a.link_url:hover{
+    text-decoration: underline;
+    color: #032146;
+}
+.btnnomargin{
+    margin-right: 0px ;
+}
+.ketengah{
+    text-align: center;
+}
+.control_label2{
+    padding-top: 8px;
+    margin-bottom: 0;
+    text-align: left;
+}
+.tile-stats .hoverku{
+    color: #73879C;
+}
+.tile-stats .hoverku:hover{
+    color: #000;
+}

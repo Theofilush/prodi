@@ -16,7 +16,7 @@
                                   <option></option>
                                   <?php 
                                     foreach($tampil_tahun as $row1){
-                                  ?>  
+                                  ?> 
                                       <option><?php echo $row1->tahun; ?></option> 
                                   <?php
                                     }
@@ -28,8 +28,7 @@
                   <div class="x_content"> 
                     <div class="row">
                       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin-bottom: 5px;">
-                        <a href="<?php echo site_url() ?>databaru/NewPublikasiJurnal" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>
-                        <button class="btn btn-sm btn-info" onclick="DataEdt()"><span class="glyphicon glyphicon-plus"></span>  Data Baru</button> 
+                        <button class="btn btn-sm btn-info" onclick="DataAdd()"><span class="glyphicon glyphicon-plus"></span>  Data Baru</button> 
                       </div>
                        <a href="<?php echo site_url() ?>publikasi/PublikasiJurnal/exportexcel" class="btn btn-sm btn-success pull-right">Excel <i class="fa fa-file-excel-o"></i> </a>
                     </div>
@@ -40,10 +39,15 @@
                           <th>Nomor Dok.</th>
                           <th>Kategori</th>
                           <th>Keterangan</th>
-                          <th>Standar</th>
                           <th>Tahun Valid</th>
                           <th>File</th>
-                          <th>Edit</th>
+                          <?php
+                            if($buba == 'administrator' || $buba == 'kaprodi'){
+                          ?>                           
+                           <th>Edit</th>
+                          <?php
+                            }
+                          ?>
                           <th>Valid</th>
                         </tr>
                       </thead>
@@ -55,7 +59,7 @@
                         <tr>
                           <td><?php echo $no++ ?></td>
                           <td>
-                              <b><?php echo $row->no_dok; ?></b><br>
+                              <?php echo $row->no_dok; ?><br>
                           </td>
                           <td>
                             <?php echo $row->jenis_dokumen;  ?>
@@ -64,20 +68,45 @@
                             <?php echo $row->nama_dokumen;  ?>
                           </td>
                           <td>
-                            <b><?php echo $row->standar; ?></b><br>
+                            <?php echo $row->tahun_valid; ?> 
                           </td>
-                          <td class="ketengah">  
-                          <?php echo $row->tahun_valid; ?> 
-                          </td>
-                          <td class="ketengah">    
+                          <td>    
                             <?php echo $row->file; ?>                         
                           </td>
+                          <?php
+                            if($buba == 'administrator' || $buba == 'kaprodi'){
+                          ?>                                     
                           <td class="ketengah">
-                            <a href="" onclick="return DataEdt('<?php echo site_url() ?>Edit')">></a>
-                            <?php  echo anchor_popup('Edit', 'editku', array('target' => ''));?>
+                            <a href="" onclick="return DataEdit('<?php echo $row->id_dok; ?>')" class="btn btn-primary btn-xs btnnomargin"><i class="glyphicon glyphicon-pencil"></i></a>
+
+                            <!-- <?php  echo anchor_popup('Edit/index/'.$row->id_dok, '<i class="glyphicon glyphicon-pencil"></i>', array('target' => '','height'=>800,'class'=>"btn btn-primary btn-xs btnnomargin"));?> -->
+
+                            <a href="<?php echo site_url(); ?>borang/Standar1/deletedok/<?php echo $row->standar; ?>/<?php echo $row->id_dok; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
                           </td> 
+                          <?php
+                            }
+                          ?>
+
                           <td class="ketengah">
-                            <?php echo $row->valid; ?>
+                            <?php
+                            if($row->valid == "TIDAK") {
+                                 echo '<span class="font_color_red">'.$row->valid.'</span>';
+                              } elseif ($row->valid == "YA" ) {
+                                 echo '<span class="font_color_green">'.$row->valid.'</span>';
+                              } 
+                            ?>
+                      <!-- <?php
+                            if($buba == 'administrator' && ($row->valid == NULL)) {
+                            ?> 
+                              <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/validasi/<?php echo $row->id_dok; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-check"></i></a>
+                              <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/tolakvalidasi/<?php echo $row->id_dok; ?>" class="btn btn-xs btn-hitam btnnomargin"><i class="fa fa-ban"></i></a>
+                            <?php
+                              } elseif ($buba == 'administrator' && ($row->valid ==  "TIDAK") ) {
+                            ?>
+                              <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/validasi/<?php echo $row->id_dok; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+                            <?php
+                              }
+                            ?> -->
                           </td>                         
                         </tr>
                         <?php

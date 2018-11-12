@@ -72,7 +72,7 @@
                   <li><a href="<?php echo site_url() ?>Pencarian"><i class="fa fa-search"></i>Pencarian Dokumen</a></li>
                                     
                   <?php
-                    if($buba == 'administrator'){
+                    if($buba == 'administrator'|| $buba == 'kaprodi'){
                   ?>
                    <li><a href="<?php echo site_url() ?>users"><i class="fa fa-users"></i>Users</a></li>
                   <?php

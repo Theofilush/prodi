@@ -152,10 +152,21 @@
                    // $("#pesan_username").fadeIn(1000);
                 }
             });
-        }            
+        }
     }   
-    function DataEdt() {
-      win2 = window.open("<?php echo base_url() ?>add/Dokumen", "", "width=800, height=500, scrollbars, status");
+    function DataAdd() {
+      win2 = window.open("<?php echo base_url() ?>Pengisian", "", "width=800, height=800, scrollbars, status");
+      if (win2.opener == null) { childWindow.opener = self; }
+    } 
+    function DataEdit($urlku) {
+      win2 = window.open("<?php echo base_url() ?>Edit/index/"+$urlku, "", "width=800, height=800, scrollbars, status");
+      if (win2.opener == null) { childWindow.opener = self;window.opener.location.reload(); }
+      /*win2.onclose=function(){
+       window.location="redirect";
+      };*/
+      /*if (win2.onclose()) {        
+        window.opener.location.reload();
+      }*/
     } 
   </script>
   </body>

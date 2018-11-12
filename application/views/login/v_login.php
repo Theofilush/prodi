@@ -27,7 +27,11 @@
             <form action="<?php echo site_url('login/aksi_login'); ?>" method="post">
               <h1>Borang Prodi</h1>
               <img src="<?php echo base_url() ?>asett/images/logo.png">
-              <p style="color:green;text-align:center;padding: 10px;"><?php echo $this->session->flashdata('notification')?></p>
+              <p style="color:red;text-align:center;padding: 10px;"><?php echo $this->session->flashdata('notification')?></p>
+              <?php if (!empty($this->session->flashdata('notification1'))) {
+                echo '<p style="color:green;text-align:center;padding: 10px;">'.$this->session->flashdata('notification1').'</p>';
+              } ?>
+              <!-- <p style="color:red;text-align:center;padding: 10px;"><?php echo $this->session->flashdata('notification1')?></p> -->
               <div>
                 <input type="text" name="username" class="form-control" placeholder="NIDN / Email" required="" />
               </div>
@@ -44,7 +48,6 @@
                 <p class="change_link">New to site?
                   <a href="#signup" class="to_register"> Create Account </a>
                 </p>
-
                 <!--<div class="clearfix"></div>
                 <br />
 

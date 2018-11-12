@@ -37,7 +37,7 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun 
                                     </label>
                                     <div class="col-md-2 col-sm-2 col-xs-11">
-                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun">                                            
+                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun" required="required">                                            
                                             <?php 
                                           foreach($tampil_tahun as $row){
                                         ?>  
@@ -62,7 +62,7 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Kategori
                                     </label>
                                     <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Jenis" name="jenis_dokumen">
+                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Jenis" name="jenis_dokumen" required="required">
                                             <?php 
                                           foreach($jnis_dok as $row){
                                         ?>  
@@ -80,7 +80,7 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Author
                                     </label>
                                     <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Jenis Dokumen" name="authorisasi">
+                                        <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Jenis Dokumen" name="authorisasi" required="required">
                                         <?php
                                           foreach($tampil_author as $row){
                                         ?>  
@@ -95,7 +95,7 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Lingkup
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                     <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Jenis Dokumen" name="lingkup">
+                                     <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Jenis Dokumen" name="lingkup" required="required">
                                         <?php
                                           foreach($tampil_lingkup as $row){
                                         ?>  
@@ -117,7 +117,7 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Kelompok Dokumen
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                      <select class="form-control select2_ok" style="width: 100%;" multiple="multiple" data-placeholder="Pilih Standar" name="kelompok[]">
+                                      <select class="form-control select2_ok" style="width: 100%;" multiple="multiple" data-placeholder="Pilih Standar" name="kelompok[]" required="required">
                                         <option value="1">Standar 1</option>
                                         <option value="2">Standar 2</option>
                                         <option value="3">Standar 3</option>
@@ -135,7 +135,7 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Valid
                                     </label>
                                     <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih range_tahun" name="tahun_valid" id="operasi1" onchange="cek_bunyi();">
+                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih range_tahun" name="tahun_valid" id="operasi1" onchange="cek_bunyi();" required="required">
                                             <?php 
                                           foreach($range_thn as $row){
                                         ?>  

@@ -2019,7 +2019,16 @@ if (typeof NProgress != 'undefined') {
 				  keys: true
 				});
 
-				$('#datatable-responsive').DataTable();
+				var table1 = $('#datatable-responsive').DataTable({
+					'columnDefs': [			            
+			            { width: '20%', targets: 1 },
+			            { width: '17%', targets: 2 },
+			            { width: '36%', targets: 3 },
+			            { width: '8%', targets: 4 },
+			            { width: '2%', targets: 5 },
+			            { width: '8%', targets: 6 }
+			        ]
+				});
 
 				$('#datatable-scroller').DataTable({
 				  ajax: "js/datatables/json/scroller-demo.json",

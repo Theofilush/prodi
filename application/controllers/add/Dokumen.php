@@ -20,8 +20,8 @@ class Dokumen extends CI_Controller {
           'da' => $kue   
         );
 
-		$this->load->view('dashboard/v_header',$dataHalaman);
-		$this->load->view('dokumen/v_pencarian');
-		$this->load->view('dashboard/v_footer');
+		//$this->load->view('dashboard/v_header',$dataHalaman);
+		$this->load->view('penambahan/v_add_dokumen',$dataHalaman);
+		//$this->load->view('dashboard/v_footer');
 	}
 }

@@ -14,7 +14,7 @@ class Standar9 extends CI_Controller {
 	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->get_dokumen(); 
+		$query = $this->M_dokumen->get_dokumen_9(); 
 
 		$dataHalaman = array(   
 		'pagea'	=> "beranda",

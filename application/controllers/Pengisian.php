@@ -22,7 +22,7 @@ class Pengisian extends CI_Controller {
 
 		$dataHalaman = array(   
 		  'pagea'	=> "beranda",
-          'da' => $kue, 
+      'da' => $kue, 
 		  'jnis_dok' => $jenisDOK,        
 		  'tampil_tahun'=> $query_tampil_tahun,
 		  'range_thn'=>$range_thn,
@@ -36,7 +36,6 @@ class Pengisian extends CI_Controller {
 	}
 	 public function savedok()
     {     
-
       if($this->input->post('btnUpload') == "Upload"){
               $config['upload_path'] = './fileupload/';
               $config['allowed_types'] = 'pdf';
@@ -84,12 +83,13 @@ class Pengisian extends CI_Controller {
             }            
                 //panggil fungsi simpanUser pada User_model
             //$query= $this->M_dokumen->simpanDok($data);
-           if ($query) {
-              redirect(site_url('Home'));
+           if ($query) {            
+            echo '<body onLoad="window.close()"></body> ';
+             // redirect(site_url('Home'));
             //print_r($stan);
            }
            else{
-              redirect(site_url('Home'));
+              echo "<b>Data Gagal DiMasukkan</b>";
            }
       }
             

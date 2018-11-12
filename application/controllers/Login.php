@@ -89,7 +89,7 @@ class Login extends CI_Controller {
 				//panggil fungsi simpanUser pada User_model
 				$query= $this->m_login->simpanUser($data);
 				if ($query) {
-					$this->session->set_flashdata('notification', 'Pendaftaran berhasil, silakan login.');	
+					$this->session->set_flashdata('notification1', 'Pendaftaran berhasil, silakan login.');	
 				  redirect(site_url('login'));
 				}
 				else{
