@@ -16,7 +16,7 @@ class Login extends CI_Controller {
 		);
 		$this->load->view('login/v_login',$data);
 		if($this->session->userdata('status') == "login"){
-			redirect(site_url("Home"));
+			redirect(site_url("borang/Standar1"));
 		}
 	} //$this->load->library('user_agent');
 	//redirect($this->agent->referrer());
@@ -48,7 +48,7 @@ class Login extends CI_Controller {
 				'status' => "login"
 				);
 				$this->session->set_userdata($data_session);	
-				redirect(site_url("Home"),'refresh');				
+				redirect(site_url("borang/Standar1"),'refresh');				
 			}
 			else{
 				$this->session->set_flashdata('notification','Maaf Password Salah.');
@@ -62,7 +62,6 @@ class Login extends CI_Controller {
 			$this->session->set_userdata($data_session);
  
 			redirect(site_url("dashboard"));*/
- 
 		}else{
 			$this->session->set_flashdata('notification', 'Username atau Password tidak ditemukan');	
 			  redirect(site_url());

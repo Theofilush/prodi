@@ -197,7 +197,7 @@
                                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3"> 
                                             <!--<button type="button" onclick="window.history.back()" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Batal</button>-->
                             <button class="btn btn-primary" type="reset">Reset</button>
-                                            <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Submit</button>
+                                            <button type="submit" class="btn btn-success" name="btnUpload" value="Upload" onClick="javascript:window.close();">Submit</button>
                                             </div>
                                         </div>
 

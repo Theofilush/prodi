@@ -12,7 +12,7 @@
     <link href="<?php echo base_url() ?>asett/dist/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asett/dist/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Ubuntu|Roboto" rel="stylesheet"> 
-    <link href="<?php echo base_url() ?>asett/plugins/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>asett/plugins/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet"> 
     <!--<link href="<?php echo base_url() ?>asett/plugins/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">-->
     <link href="<?php echo base_url() ?>asett/plugins/iCheck/skins/all.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asett/plugins/select2/dist/css/select2.min.css" rel="stylesheet">
@@ -28,7 +28,9 @@
   <body class="nav-md"><?php foreach($da as $row){$buba= $row->author;$bubi= $row->username;$bubc= $row->NIDN; }  ?>
     <div class="container body">
       <div class="main_container">
-        <div class="right_col" role="main"><?php foreach($da as $row){$buba= $row->author;$bubi= $row->username;$bubc= $row->NIDN; }  ?>
+        <div class="right_col" role="main"><?php foreach($da as $row){$buba= $row->author;$bubi= $row->username;$bubc= $row->NIDN; } 
+foreach ($query as $rou) { $nomoer_std =$rou->standar;}
+?>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <div class="x_panel">
@@ -41,7 +43,7 @@
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="x_panel">
                                     <div class="x_title">
-                                        <h2>Form Input Data</h2>
+                                        <h2>Form Edit Data</h2>
                                         <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>                                
@@ -49,7 +51,7 @@
                                         </li>
                                         </ul> 
                                         <div class="clearfix"></div>
-                                    </div>
+                                    </div> 
                                     <div class="x_content">
                                         <br />
                                         <?php
@@ -61,11 +63,12 @@
                                                 echo form_open_multipart('Edit/updatedok',$atribut);
                                                 foreach ($query as $rou) {    
                                                 echo form_hidden('id',$rou->id_dok);
-                                                echo form_hidden('std',$rou->standar);
+                                                echo form_input(array('name' => 'std', 'type'=>'hidden', 'id' =>'std', 'value' => $rou->standar));
+                                               // echo form_hidden(array('value'=>$rou->standar, 'name'=>'std', 'id'=>'std'));
                                                 echo form_hidden('pic',$bubi);
                                         ?> 
                                         <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->                                
-                                        <div class="form-group">
+                                       <!--  <div class="form-group">
                                             <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun 
                                             </label>
                                             <div class="col-md-2 col-sm-2 col-xs-12">
@@ -74,41 +77,79 @@
                                                     <?php 
                                                   foreach($tampil_tahun as $row){
                                                 ?>  
-                                                <option><?php echo $row->tahun; ?></option>                      
+                                                <option><?php echo $row->tahun; ?></option> 
                                                 <?php
                                                    }
                                                 ?>   
                                             </select>
                                             </div>
-                                            
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-2 col-sm-2 col-xs-12">Nomor Dokumen
-                                            </label>
-                                            <div class="col-md-7 col-sm-7 col-xs-12">
-                                            <input type="text" id="nomor" name="nomor" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $rou->no_dok; ?>">
-                                            </div>
-                                        </div>                               
-                                        <div class="form-group">
-                                            <label class="control-label col-md-2 col-sm-2 col-xs-12">Kategori
-                                            </label>
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                            <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Jenis" name="jenis_dokumen">
-                                                <option><?php echo $rou->jenis_dokumen; ?></option>
-                                                    <?php 
-                                                  foreach($tampil_kategori as $row){ 
-                                                ?>  
-                                                <option><?php echo $row->jenis_dokumen; ?></option>                      
-                                                <?php
-                                                   }
-                                                ?>   
-                                                <!-- <optgroup label="Group Name">
-                                                  <option>Nested option</option>
-                                                </optgroup> -->
-                                            </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
+                                        </div> -->
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Terbit
+                                    </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_terbit" required="required">
+                                        <option><?php echo $rou->tahun_terbit; ?></option>
+                                            <?php 
+                                          foreach($tampil_tahun as $row){
+                                        ?>  
+                                        <option><?php echo $row->tahun; ?></option>
+                                        <?php
+                                           }
+                                        ?>   
+                                    </select>
+                                    </div>
+                                    <label class="control-label col-md-1 col-sm-1 col-xs-12">Semester
+                                    </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-5">
+                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="tt_smt" required="required">                                            
+                                        <option>Gasal</option>
+                                        <option>Genap</option>
+                                    </select>
+                                    </div>
+                                     <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <a href="<?php echo site_url().'AddYear';  ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-plus"></i></a>
+                                </div>
+                                </div>                             
+                                 <div class="form-group" >
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Perluasan Dokumen
+                                </label>
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <select class="form-control select2_ok" id="per_dok" style="width: 100%;" data-placeholder="Pilih Jenis" name="perluasan_dokumen">
+                                        <option value="">Pilih</option>
+                                        <!-- <?php
+                                        foreach($perluasan_dok as $row){
+                                        ?>
+                                        <option><?php echo $row->nama; ?></option>
+                                        <?php
+                                        }
+                                        ?> -->
+                                        <!-- <optgroup label="Group Name">
+                                            <option>Nested option</option>
+                                        </optgroup> -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Kelompok Dokumen
+                                </label>
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <select class="form-control select2_ok" id="keldok" style="width: 100%;" data-placeholder="Pilih Jenis" name="kelompok_dokumen2">
+                                        <option value="">Pilih</option>
+                                        <!-- <?php
+                                        foreach($kelompok_dok as $roww){
+                                        ?>
+                                        <option><?php echo $roww->nama; ?></option>
+                                        <?php
+                                        }
+                                        ?> -->
+                                        <!-- <optgroup label="Group Name">
+                                            <option>Nested option</option>
+                                        </optgroup> -->
+                                    </select>
+                                </div>
+                            </div>
+                                       <!--  <div class="form-group">
                                             <label class="control-label col-md-2 col-sm-2 col-xs-12">Lingkup
                                             </label>
                                             <div class="col-md-7 col-sm-7 col-xs-12">                                    
@@ -139,7 +180,7 @@
                                                 ?>   
                                               </select>
                                             </div>
-                                        </div> 
+                                        </div>  -->
                                         <div class="form-group">
                                             <label class="control-label col-md-2 col-sm-2 col-xs-12">Keterangan
                                             </label>
@@ -164,8 +205,7 @@
                                               </select>                                    
                                             </div>
                                         </div> -->
-                                       
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Valid
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
@@ -193,22 +233,7 @@
                                             <input type="text" id="lainnya" name="lainnya" class="form-control col-md-7 col-xs-12"  value="<?php echo $rou->lainnya; ?>">
                                             <small>tidak harus diisi (jika tahun valid tidak tercantum diatas)</small>
                                             </div>
-                                        </div>                                       
-                                        <!-- <div class="form-group">
-                                            <label class="control-label col-md-2 col-sm-2 col-xs-12">Upload Berkas
-                                            </label>
-                                            <div class="col-md-7 col-sm-7 col-xs-12">
-                                            <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" value="" required />
-                                            <small> Ukuran file:  maksimum 5 MB | Format: PDF</small>
-                                            </div>
-                                        </div> -->
-                                        <!-- <div class="form-group">
-                                            <label class="control-label col-md-2 col-sm-2 col-xs-12">Nomor Dokumen
-                                            </label>
-                                            <div class="col-md-7 col-sm-7 col-xs-12">
-                                                <input type="text" id="nomor" name="nomor" required="required" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div> -->
+                                        </div>  --> 
                                         <div class="form-group">
                                             <label class="control-label col-md-2 col-sm-2 col-xs-12">Status Valid </label>
                                             <div class="col-md-7 col-sm-7 col-xs-12" style="margin-top: 9px;">
@@ -398,6 +423,55 @@
       checkboxClass: 'icheckbox_flat-blue',
       radioClass   : 'iradio_flat-blue'
     })
+    $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di load)
+      // Kita sembunyikan dulu untuk loadingnya
+     // $("#loading").hide();
+/*$("#kelompok").change(function(){ 
+});*/
+        $.ajax({
+          type: "POST", // Method pengiriman data bisa dengan GET atau POST
+          url: "<?php echo base_url("Edit/listPerluasan"); ?>", // Isi dengan url/path file php yang dituju 
+          data: {id_provinsi : $("#std").val()}, // data yang akan dikirim ke file yang dituju
+          //$('#idlibur').val($(this).data('id'));
+          dataType: "json",
+          beforeSend: function(e) {
+            if(e && e.overrideMimeType) {
+              e.overrideMimeType("application/json;charset=UTF-8");
+            }
+          },
+          success: function(response){ // Ketika proses pengiriman berhasil
+            //$("#loading").hide(); // Sembunyikan loadingnya
+            // set isi dari combobox kota
+            // lalu munculkan kembali combobox kotanya
+            $("#per_dok").html(response.list_perdok).show();
+          },
+          error: function (xhr, ajaxOptions, thrownError) { // Ketika ada error
+            alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError); // Munculkan alert error
+          }
+        });
+      //$("#per_dok").change(function(){ 
+        $.ajax({
+          type: "POST", // Method pengiriman data bisa dengan GET atau POST
+          url: "<?php echo base_url("Pengisian/listKelDok"); ?>", // Isi dengan url/path file php yang dituju
+          data: {id_keldok : $("#per_dok").val()}, // data yang akan dikirim ke file yang dituju
+          dataType: "json",
+          beforeSend: function(e) {
+            if(e && e.overrideMimeType) {
+              e.overrideMimeType("application/json;charset=UTF-8");
+            }
+          },
+          success: function(response){ // Ketika proses pengiriman berhasil
+            //$("#loading").hide(); // Sembunyikan loadingnya
+            // set isi dari combobox kota
+            // lalu munculkan kembali combobox kotanya
+            $("#keldok").html(response.list_keldok).show();
+          },
+          error: function (xhr, ajaxOptions, thrownError) { // Ketika ada error
+            alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError); // Munculkan alert error
+          }
+        });
+      //});
+    });
   </script>
   </body>
 </html>

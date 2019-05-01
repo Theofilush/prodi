@@ -23,7 +23,7 @@ class Standar6 extends CI_Controller {
         );
  
 		$this->load->view('dashboard/v_header',$dataHalaman);
-		$this->load->view('dokumen/standar/v_standar5');
+		$this->load->view('dokumen/standar/v_standar6');
 		$this->load->view('dashboard/v_footer');
 	}
 }

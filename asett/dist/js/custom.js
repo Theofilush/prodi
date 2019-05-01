@@ -2021,13 +2021,15 @@ if (typeof NProgress != 'undefined') {
 
 				var table1 = $('#datatable-responsive').DataTable({
 					'columnDefs': [			            
-			            { width: '20%', targets: 1 },
-			            { width: '17%', targets: 2 },
-			            { width: '36%', targets: 3 },
+			            { width: '4%', targets: 0 },
+			            { width: '9%', targets: 1 },
+			            { width: '5%', targets: 2 },
+			            { width: '8%', targets: 3 },
 			            { width: '8%', targets: 4 },
-			            { width: '2%', targets: 5 },
-			            { width: '8%', targets: 6 }
-			        ]
+			            { width: '7%', targets: 5 },
+			            { width: '28%', targets: 6 }
+			        ],
+			        "pageLength": 25
 				});
 
 				$('#datatable-scroller').DataTable({

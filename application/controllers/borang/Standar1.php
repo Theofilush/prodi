@@ -10,8 +10,7 @@ class Standar1 extends CI_Controller {
 			redirect(site_url("login"));
 		} 
 	}
-	public function index()
-	{ 
+	public function index(){ 
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
 		$query = $this->M_dokumen->get_dokumen_1(); 

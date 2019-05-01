@@ -1,4 +1,4 @@
-<?php foreach($da as $row){$buba= $row->author;$bubi= $row->username; }  if ($buba == 'administrator'){ ?>
+<?php foreach($da as $row){$buba= $row->author;$bubi= $row->username; }  if ($buba == 'administrator' || $buba == 'kaprodi' ){ ?>
 <div class="right_col" role="main">          
           <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">

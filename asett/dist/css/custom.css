@@ -4304,3 +4304,13 @@ a.link_url:hover{
 .tile-stats .hoverku:hover{
     color: #000;
 }
+a:hover{
+    color: #000;
+}
+.hr_line_dashed{
+    border-top: 1px solid #E7EAEC;
+    color: #ffffff;
+    background-color: #ffffff;
+    height: 1px;
+    margin: 20px 0;
+}

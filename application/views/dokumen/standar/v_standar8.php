@@ -5,7 +5,7 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <p ><?php echo $this->session->flashdata('notification')?></p>                                           
-                      <h4 class="">Dokumen Borang Prodi</h4>
+                      <h4 class="">Dokumen Borang Prodi - Standar 8 - Pengabdian Masyarakat</h4>
                       <!-- <div class=" hidden-xs hidden-sm col-md-12">
                   Urutkan:
                       <button class="btn btn-default btn-sm" id="reset">Reset</button>
@@ -28,7 +28,7 @@
                   <div class="x_content"> 
                     <div class="row">
                       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin-bottom: 5px;">
-                        <button class="btn btn-sm btn-info" onclick="DataAdd()"><span class="glyphicon glyphicon-plus"></span>  Data Baru</button> 
+                        <!-- <button class="btn btn-sm btn-info" onclick="javascript:DataAdd()"><span class="glyphicon glyphicon-plus"></span>  Data Baru</button>  -->
                       </div>
                         <a href="<?php echo site_url() ?>publikasi/PublikasiJurnal/exportexcel" class="btn btn-success pull-right">Excel <i class="fa fa-file-excel-o"></i> </a>
                     </div>
@@ -36,11 +36,13 @@
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>Nomor Dok.</th>
+                          <th>Tahun</th>
+                          <th>Semester</th>
+                          <th>Perluasan</th>
                           <th>Kategori</th>
-                          <th>Keterangan</th>
-                          <th>Tahun Valid</th>
-                          <th>File</th>
+                          <th>PIC</th>
+                          <th>Nama Dokumen</th>
+                          <th>Tanggal Input</th>
                           <?php
                             if($buba == 'administrator' || $buba == 'kaprodi'){
                           ?>                           
@@ -58,20 +60,26 @@
                         ?> 
                         <tr>
                           <td><?php echo $no++ ?></td>
-                          <td>
-                              <b><?php echo $row->no_dok; ?></b><br>
+                         <td>
+                  <?php echo $row->tahun_terbit; ?>
+                </td>
+                <td>
+                  <?php echo $row->tt_semester; ?>
+                </td>
+                <td>
+                  <?php echo $row->nama_perluasan;  ?>
+                </td>
+                <td>
+                  <?php echo $row->nama_keldoku;  ?>
+                </td>
+                          <td>  
+                            <?php echo $row->pic; ?> 
+                          </td>
+                          <td>      
+                            <a href="<?php echo site_url().'fileupload/'.$row->file  ?>" target="_blank"><?php echo $row->nama_dokumen;  ?></a>
                           </td>
                           <td>
-                            <?php echo $row->jenis_dokumen;  ?>
-                          </td>
-                          <td>
-                            <?php echo $row->nama_dokumen;  ?>
-                          </td>
-                          <td class="ketengah">  
-                          <?php echo $row->tahun_valid; ?> 
-                          </td>
-                          <td>    
-                            <?php echo $row->file; ?>                         
+                            <?php echo $row->created_at; ?>
                           </td>
                           <?php
                             if($buba == 'administrator' || $buba == 'kaprodi'){

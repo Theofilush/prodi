@@ -32,7 +32,14 @@
         // foreach($ttal_std as $dat){   //menambpilkan kategori pada x-axis
         //     $kd[] = $dat->jenis_dokumen;
         // } 
-        foreach($ttal_std1 as $dat){   //menambpilkan kategori pada x-axis
+        foreach($data_jumdok as $dat){   //menambpilkan kategori pada x-axis
+            $tahun_akademik[] = $dat->tahun_terbit;
+             $jumlah_dok_pertahun[] = $dat->jumlah_dok;
+        }        
+        /*foreach($std1 as $rowa){ 
+          $total_a1[] = $rowa;
+        }*/
+        /*foreach($ttal_std1 as $dat){   //menambpilkan kategori pada x-axis
             $kd1[] = $dat->jenis_dokumen;
         }        
         foreach($ttal_std2 as $dat){   //menambpilkan kategori pada x-axis
@@ -85,7 +92,7 @@
         }
         foreach($std9 as $rowi){ 
           $total_a9[] = $rowi;
-        }
+        }*/
 
       ?>
   <script>
@@ -219,7 +226,34 @@
     function DataEdit($urlku) {
       win2 = window.open("<?php echo base_url() ?>Edit/index/"+$urlku, "", "width=800, height=800, scrollbars, status");
     } 
-     if ($('#mybarCharta').length ){
+    if ($('#mybarChartProdi').length){
+        var ctx = document.getElementById("mybarChartProdi");
+        var mybarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: <?php echo json_encode($tahun_akademik);?>,
+          datasets: [{
+          label: 'Jumlah ',
+          backgroundColor: "#26B99A",
+          data: <?php echo json_encode($jumlah_dok_pertahun);?>
+          }]
+        },
+
+        options: {
+          scales: {
+          yAxes: [{
+            ticks: {
+            beginAtZero: true
+            }
+          }]
+          },
+          legend: {
+            display: false
+          } 
+        }
+        });       
+      }
+     /* if ($('#mybarCharta').length ){
         var ctx = document.getElementById("mybarCharta");
         var mybarChart = new Chart(ctx, {
         type: 'bar',
@@ -461,7 +495,7 @@ if ($('#mybarCharti').length ){
           } 
         }
         });       
-      }
+      }*/
 
   </script>
   </body>
