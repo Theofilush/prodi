@@ -5,7 +5,8 @@
                 <!--<div class="x_title">
                     <h4 class="">Publikasi Jurnal</h4>
                     <div class="clearfix"></div>
-                </div>-->
+                </div>--> 
+                <!-- <p style="color:red;text-align:center;padding: 10px;"><?php echo $this->session->flashdata('notification')?></p> -->
                 <div class="x_content">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">

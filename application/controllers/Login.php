@@ -84,7 +84,7 @@ class Login extends CI_Controller {
 				  'prodi'=> $_prodi,				  
 				  'password'=> get_hash($_password),
 				  'author'=> $_jabatan
-				); 
+				);
 				//panggil fungsi simpanUser pada User_model
 				$query= $this->m_login->simpanUser($data);
 				if ($query) {

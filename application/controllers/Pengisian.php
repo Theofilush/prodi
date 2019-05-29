@@ -138,11 +138,12 @@ public function listKelDok(){
            if ($query) {            
             //echo '<body onLoad="window.close()"></body> ';
             //echo "<script> function ttup() { self.close; return false;} ttup(); </script> ";
-
+            $this->session->set_flashdata('notification', 'Penambahan Dokumen Akreditasi Berhasil')
             redirect(site_url('Pengisian'));
             //print_r($stan);
            }
            else{
+              $this->session->set_flashdata('notification1', 'Penambahan Dokumen Akreditasi Tidak Berhasil')
               redirect(site_url('Pengisian'));
               //echo "<b>Data Gagal DiMasukkan</b>";
            }
