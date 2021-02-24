@@ -26,7 +26,6 @@
           <section class="login_content">
             <form action="<?php echo site_url('login/aksi_login'); ?>" method="post">
               <h1>Borang Prodi</h1>
-		<h1>Borang Prodi I</h1>
               <img src="<?php echo base_url() ?>asett/images/logo.png">
               <p style="color:red;text-align:center;padding: 10px;"><?php echo $this->session->flashdata('notification')?></p>
               <?php if (!empty($this->session->flashdata('notification1'))) {
