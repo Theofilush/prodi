@@ -28,72 +28,53 @@
     <script src="<?php echo base_url() ?>asett/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/Chart.js/dist/Chart.min.js"></script>
     <script src="<?php echo base_url() ?>asett/dist/js/custom.js"></script>
-        <?php
-        // foreach($ttal_std as $dat){   //menambpilkan kategori pada x-axis
-        //     $kd[] = $dat->jenis_dokumen;
-        // } 
-        foreach($data_jumdok as $dat){   //menambpilkan kategori pada x-axis
-            $tahun_akademik[] = $dat->tahun_terbit;
-             $jumlah_dok_pertahun[] = $dat->jumlah_dok;
-        }        
-        /*foreach($std1 as $rowa){ 
-          $total_a1[] = $rowa;
-        }*/
-        /*foreach($ttal_std1 as $dat){   //menambpilkan kategori pada x-axis
-            $kd1[] = $dat->jenis_dokumen;
-        }        
-        foreach($ttal_std2 as $dat){   //menambpilkan kategori pada x-axis
-            $kd2[] = $dat->jenis_dokumen;
-        }        
-        foreach($ttal_std3 as $dat){   //menambpilkan kategori pada x-axis
-            $kd3[] = $dat->jenis_dokumen;
-        }        
-        foreach($ttal_std4 as $dat){   //menambpilkan kategori pada x-axis
-            $kd4[] = $dat->jenis_dokumen;
-        }        
-        foreach($ttal_std5 as $dat){   //menambpilkan kategori pada x-axis
-            $kd5[] = $dat->jenis_dokumen;
-        }        
-        foreach($ttal_std6 as $dat){   //menambpilkan kategori pada x-axis
-            $kd6[] = $dat->jenis_dokumen;
-        }        
-        foreach($ttal_std7 as $dat){   //menambpilkan kategori pada x-axis
-            $kd7[] = $dat->jenis_dokumen;
-        }        
-        foreach($ttal_std8 as $dat){   //menambpilkan kategori pada x-axis
-            $kd8[] = $dat->jenis_dokumen;
-        }        
-        foreach($ttal_std9 as $dat){   //menambpilkan kategori pada x-axis
-            $kd9[] = $dat->jenis_dokumen;
-        }        
-        foreach($std1 as $rowa){ 
-          $total_a1[] = $rowa;
-        }
-        foreach($std2 as $rowab){ 
-          $total_a2[] = $rowab;
-        }
-        foreach($std3 as $rowc){ 
-          $total_a3[] = $rowc;
-        }
-        foreach($std4 as $rowd){ 
-          $total_a4[] = $rowd;
-        }
-        foreach($std5 as $rowe){ 
-          $total_a5[] = $rowe;
-        }
-        foreach($std6 as $rowf){ 
-          $total_a6[] = $rowf;
-        }
-        foreach($std7 as $rowg){
-          $total_a7[] = $rowg;
-        }
-        foreach($std8 as $rowh){ 
-          $total_a8[] = $rowh;
-        }
-        foreach($std9 as $rowi){ 
-          $total_a9[] = $rowi;
-        }*/
 
+        <?php
+        foreach($data_grafik_prodi as $dat){   //menambpilkan kategori pada x-axis
+          $tahun[] = $dat->tahun;
+           $jumlah_presentase[] = $dat->jumlah_presentase;
+      }
+        foreach($data_grafik1 as $dat){   //menambpilkan kategori pada x-axis
+            $tahun1[] = $dat->tahun;
+             $jumlah_presentase1[] = $dat->jumlah_presentase;
+        }
+        foreach($data_grafik2 as $dat){   //menambpilkan kategori pada x-axis
+          $tahun2[] = $dat->tahun;
+           $jumlah_presentase2[] = $dat->jumlah_presentase;
+        }
+        foreach($data_grafik3 as $dat){   //menambpilkan kategori pada x-axis
+          $tahun3[] = $dat->tahun;
+           $jumlah_presentase3[] = $dat->jumlah_presentase;
+        }
+        foreach($data_grafik4 as $dat){   //menambpilkan kategori pada x-axis
+          $tahun4[] = $dat->tahun;
+           $jumlah_presentase4[] = $dat->jumlah_presentase;
+        }
+        foreach($data_grafik5 as $dat){   //menambpilkan kategori pada x-axis
+          $tahun5[] = $dat->tahun;
+           $jumlah_presentase5[] = $dat->jumlah_presentase;
+        }
+        foreach($data_grafik6 as $dat){   //menambpilkan kategori pada x-axis
+          $tahun6[] = $dat->tahun;
+           $jumlah_presentase6[] = $dat->jumlah_presentase;
+        }
+        foreach($data_grafik7 as $dat){   //menambpilkan kategori pada x-axis
+          $tahun7[] = $dat->tahun;
+           $jumlah_presentase7[] = $dat->jumlah_presentase;
+        }
+        foreach($data_grafik8 as $dat){   //menambpilkan kategori pada x-axis
+          $tahun8[] = $dat->tahun;
+           $jumlah_presentase8[] = $dat->jumlah_presentase;
+        }
+        foreach($data_grafik9 as $dat){   //menambpilkan kategori pada x-axis
+          $tahun9[] = $dat->tahun;
+           $jumlah_presentase9[] = $dat->jumlah_presentase;
+        }
+        foreach($data_grafik10 as $dat){   //menambpilkan kategori pada x-axis
+          $tahun10[] = $dat->tahun;
+           $jumlah_presentase10[] = $dat->jumlah_presentase;
+        }        
+        
       ?>
   <script>
     function cek_bunyi() {
@@ -231,11 +212,11 @@
         var mybarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: <?php echo json_encode($tahun_akademik);?>,
+          labels: <?php echo json_encode($tahun);?>,
           datasets: [{
           label: 'Jumlah ',
           backgroundColor: "#26B99A",
-          data: <?php echo json_encode($jumlah_dok_pertahun);?>
+          data: <?php echo json_encode($jumlah_presentase);?>
           }]
         },
 
@@ -253,16 +234,16 @@
         }
         });       
       }
-     /* if ($('#mybarCharta').length ){
+      if ($('#mybarCharta').length ){
         var ctx = document.getElementById("mybarCharta");
         var mybarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: <?php echo json_encode($kd1);?>,
+          labels: <?php echo json_encode($tahun1);?>,
           datasets: [{
-          label: 'Jumlah ',
+          label: 'Score ',
           backgroundColor: "#26B99A",
-          data: <?php echo json_encode($total_a1);?>
+          data: <?php echo json_encode($jumlah_presentase1);?>
           }]
         },
 
@@ -280,16 +261,16 @@
         }
         });       
       }
-if ($('#mybarChartb').length ){
+  if ($('#mybarChartb').length ){
         var ctx = document.getElementById("mybarChartb");
         var mybarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: <?php echo json_encode($kd2);?>,
+          labels: <?php echo json_encode($tahun2);?>,
           datasets: [{
-          label: 'Jumlah ',
+          label: 'Score ',
           backgroundColor: "#26B99A",
-          data: <?php echo json_encode($total_a2);?>
+          data: <?php echo json_encode($jumlah_presentase2);?>
           }]
         },
 
@@ -307,16 +288,16 @@ if ($('#mybarChartb').length ){
         }
         });       
       }
-if ($('#mybarChartc').length ){
+ if ($('#mybarChartc').length ){
         var ctx = document.getElementById("mybarChartc");
         var mybarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: <?php echo json_encode($kd3);?>,
+          labels: <?php echo json_encode($tahun3);?>,
           datasets: [{
-          label: 'Jumlah ',
+          label: 'Score ',
           backgroundColor: "#26B99A",
-          data: <?php echo json_encode($total_a3);?>
+          data: <?php echo json_encode($jumlah_presentase3);?>
           }]
         },
 
@@ -339,11 +320,11 @@ if ($('#mybarChartd').length ){
         var mybarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: <?php echo json_encode($kd4);?>,
+          labels: <?php echo json_encode($tahun4);?>,
           datasets: [{
-          label: 'Jumlah ',
+          label: 'Score ',
           backgroundColor: "#26B99A",
-          data: <?php echo json_encode($total_a4);?>
+          data: <?php echo json_encode($jumlah_presentase4);?>
           }]
         },
 
@@ -366,11 +347,11 @@ if ($('#mybarCharte').length ){
         var mybarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: <?php echo json_encode($kd5);?>,
+          labels: <?php echo json_encode($tahun5);?>,
           datasets: [{
-          label: 'Jumlah ',
+          label: 'Score ',
           backgroundColor: "#26B99A",
-          data: <?php echo json_encode($total_a5);?>
+          data: <?php echo json_encode($jumlah_presentase5);?>
           }]
         },
 
@@ -393,11 +374,11 @@ if ($('#mybarChartf').length ){
         var mybarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: <?php echo json_encode($kd6);?>,
+          labels: <?php echo json_encode($tahun6);?>,
           datasets: [{
-          label: 'Jumlah ',
+          label: 'Score ',
           backgroundColor: "#26B99A",
-          data: <?php echo json_encode($total_a6);?>
+          data: <?php echo json_encode($jumlah_presentase6);?>
           }]
         },
 
@@ -420,11 +401,11 @@ if ($('#mybarChartg').length ){
         var mybarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: <?php echo json_encode($kd7);?>,
+          labels: <?php echo json_encode($tahun7);?>,
           datasets: [{
-          label: 'Jumlah ',
+          label: 'Score ',
           backgroundColor: "#26B99A",
-          data: <?php echo json_encode($total_a7);?>
+          data: <?php echo json_encode($jumlah_presentase7);?>
           }]
         },
 
@@ -447,11 +428,11 @@ if ($('#mybarCharth').length ){
         var mybarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: <?php echo json_encode($kd8);?>,
+          labels: <?php echo json_encode($tahun8);?>,
           datasets: [{
-          label: 'Jumlah ',
+          label: 'Score ',
           backgroundColor: "#26B99A",
-          data: <?php echo json_encode($total_a8);?>
+          data: <?php echo json_encode($jumlah_presentase8);?>
           }]
         },
 
@@ -474,11 +455,11 @@ if ($('#mybarCharti').length ){
         var mybarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: <?php echo json_encode($kd9);?>,
+          labels: <?php echo json_encode($tahun9);?>,
           datasets: [{
-          label: 'Jumlah ',
+          label: 'Score ',
           backgroundColor: "#26B99A",
-          data: <?php echo json_encode($total_a9);?>
+          data: <?php echo json_encode($jumlah_presentase9);?>
           }]
         },
 
@@ -495,7 +476,34 @@ if ($('#mybarCharti').length ){
           } 
         }
         });       
-      }*/
+      }
+      if ($('#mybarChartj').length ){
+        var ctx = document.getElementById("mybarChartj");
+        var mybarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: <?php echo json_encode($tahun10);?>,
+          datasets: [{
+          label: 'Score ',
+          backgroundColor: "#26B99A",
+          data: <?php echo json_encode($jumlah_presentase10);?>
+          }]
+        },
+
+        options: {
+          scales: {
+          yAxes: [{
+            ticks: {
+            beginAtZero: true
+            }
+          }]
+          },
+          legend: {
+            display: false
+          } 
+        }
+        });       
+      }
 
   </script>
   </body>

@@ -168,6 +168,119 @@ class M_dokumen extends CI_Model{
             return $hasil;
         }
     }
+    function get_grafik_prodi(){
+        $query = $this->db->query("SELECT SUM(presentase) as jumlah_presentase, tahun FROM `akreditasi` WHERE valid = 'Ya' GROUP BY tahun");
+          
+        if($query->num_rows() > 0){
+            foreach($query->result() as $data){
+                $hasil[] = $data;
+            }
+            return $hasil;
+        }
+    }
+
+    function get_grafik_standar1(){
+        $query = $this->db->query("SELECT SUM(presentase) as jumlah_presentase, tahun FROM `akreditasi` WHERE id_standar = 1 AND valid = 'Ya' GROUP BY tahun");
+          
+        if($query->num_rows() > 0){
+            foreach($query->result() as $data){
+                $hasil[] = $data;
+            }
+            return $hasil;
+        }
+    }
+
+    function get_grafik_standar2(){
+        $query = $this->db->query("SELECT SUM(presentase) as jumlah_presentase, tahun FROM `akreditasi` WHERE id_standar = 2 AND valid = 'Ya' GROUP BY tahun");      
+        if($query->num_rows() > 0){
+            foreach($query->result() as $data){
+                $hasil[] = $data;
+            }
+            return $hasil;
+        }
+    }
+
+    function get_grafik_standar3(){
+        $query = $this->db->query("SELECT SUM(presentase) as jumlah_presentase, tahun FROM `akreditasi` WHERE id_standar = 3 AND valid = 'Ya' GROUP BY tahun");      
+        if($query->num_rows() > 0){
+            foreach($query->result() as $data){
+                $hasil[] = $data;
+            }
+            return $hasil;
+        }
+    }
+
+    function get_grafik_standar4(){
+        $query = $this->db->query("SELECT SUM(presentase) as jumlah_presentase, tahun FROM `akreditasi` WHERE id_standar = 4 AND valid = 'Ya' GROUP BY tahun");      
+        if($query->num_rows() > 0){
+            foreach($query->result() as $data){
+                $hasil[] = $data;
+            }
+            return $hasil;
+        }
+    }
+
+    function get_grafik_standar5(){
+        $query = $this->db->query("SELECT SUM(presentase) as jumlah_presentase, tahun FROM `akreditasi` WHERE id_standar = 5 AND valid = 'Ya' GROUP BY tahun");      
+        if($query->num_rows() > 0){
+            foreach($query->result() as $data){
+                $hasil[] = $data;
+            }
+            return $hasil;
+        }
+    }
+
+    function get_grafik_standar6(){
+        $query = $this->db->query("SELECT SUM(presentase) as jumlah_presentase, tahun FROM `akreditasi` WHERE id_standar = 6 AND valid = 'Ya' GROUP BY tahun");      
+        if($query->num_rows() > 0){
+            foreach($query->result() as $data){
+                $hasil[] = $data;
+            }
+            return $hasil;
+        }
+    }
+
+    function get_grafik_standar7(){
+        $query = $this->db->query("SELECT SUM(presentase) as jumlah_presentase, tahun FROM `akreditasi` WHERE id_standar = 7 AND valid = 'Ya' GROUP BY tahun");      
+        if($query->num_rows() > 0){
+            foreach($query->result() as $data){
+                $hasil[] = $data;
+            }
+            return $hasil;
+        }
+    }
+
+    function get_grafik_standar8(){
+        $query = $this->db->query("SELECT SUM(presentase) as jumlah_presentase, tahun FROM `akreditasi` WHERE id_standar = 8 AND valid = 'Ya' GROUP BY tahun");      
+        if($query->num_rows() > 0){
+            foreach($query->result() as $data){
+                $hasil[] = $data;
+            }
+            return $hasil;
+        }
+    }
+
+    function get_grafik_standar9(){
+        $query = $this->db->query("SELECT SUM(presentase) as jumlah_presentase, tahun FROM `akreditasi` WHERE id_standar = 9 AND valid = 'Ya' GROUP BY tahun");      
+        if($query->num_rows() > 0){
+            foreach($query->result() as $data){
+                $hasil[] = $data;
+            }
+            return $hasil;
+        }
+    }
+
+    function get_grafik_standar10(){
+        $query = $this->db->query("SELECT SUM(presentase) as jumlah_presentase, tahun FROM `akreditasi` WHERE id_standar = 10 AND valid = 'Ya' GROUP BY tahun");      
+        if($query->num_rows() > 0){
+            foreach($query->result() as $data){
+                $hasil[] = $data;
+            }
+            return $hasil;
+        }
+    }
+
+
     function hitung_stdxxxx(){
         $this->db->select('standar,`kategori`.jenis_dokumen,COUNT(*) as jumlah_dok');
         $this->db->from($this->t_dokumen);  
