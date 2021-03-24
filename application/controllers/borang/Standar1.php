@@ -13,7 +13,7 @@ class Standar1 extends CI_Controller {
 	public function index(){ 
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->get_dokumen_1(); 
+		$query = $this->M_dokumen->get_dokumen_1();
 
 		$dataHalaman = array(
 		'pagea'	=> "beranda",
@@ -40,8 +40,8 @@ class Standar1 extends CI_Controller {
 		$this->load->view('dashboard/v_footer');
 	}
 	public function deletedok($std,$id){		
-		$this->db->where('id_dok', $id);
-        $query = $this->db->get('t_dokumen');
+		$this->db->where('id_akreditasi', $id);
+        $query = $this->db->get('akreditasi');
         $row = $query->row();
         unlink("./fileupload/$row->file");
 		$this->M_dokumen->deleteDok_standar1($id);

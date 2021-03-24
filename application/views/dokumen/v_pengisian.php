@@ -53,7 +53,7 @@
                                 <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun
                                 </label>
                                 <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_terbit" required="required">
+                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun" required="required">
                                         <?php
                                         foreach($tampil_tahun as $row){
                                         ?>
@@ -66,7 +66,7 @@
                                 <label class="control-label col-md-1 col-sm-1 col-xs-12">Semester
                                 </label>
                                 <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="tt_smt" required="required">
+                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="semester" required="required">
                                         <option>Gasal</option>
                                         <option>Genap</option>
                                     </select>
@@ -79,55 +79,50 @@
                                 <label class="control-label col-md-2 col-sm-2 col-xs-12">Standar
                                 </label>
                                 <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <select class="form-control select2_ok" style="width: 100%;"  data-placeholder="Pilih Standar" name="kelompok" id="kelompok" required="required">
+                                    <select class="form-control select2_ok" style="width: 100%;"  data-placeholder="Pilih Standar" name="standar" id="kelompok" required="required">
                                         <option value="">Pilih</option>
-                                        <option value="1">Standar 1</option>
-                                        <option value="2">Standar 2</option>
-                                        <option value="3">Standar 3</option>
-                                        <option value="4">Standar 4</option>
-                                        <option value="5">Standar 5</option>
-                                        <option value="6">Standar 6</option>
-                                        <option value="7">Standar 7</option>
-                                        <option value="8">Standar 8</option>
-                                        <option value="9">Standar 9</option>
+                                        < <?php
+                                        foreach($standar as $row){
+                                        ?>
+                                        <option value="<?php echo $row->id_standar ?>"><?php echo $row->nama_standar; ?></option>
+                                        <?php
+                                        }
+                                        ?> 
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group" >
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Perluasan Dokumen
+                             <div class="form-group" >
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Butir
                                 </label>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <select class="form-control select2_ok" id="per_dok" style="width: 100%;" data-placeholder="Pilih Jenis" name="perluasan_dokumen" required="required">
+                                    <select class="form-control select2_ok" id="per_dok" style="width: 100%;" data-placeholder="Pilih Jenis" name="butir" required="required">
                                         <option value="">Pilih</option>
                                         <!-- <?php
-                                        foreach($perluasan_dok as $row){
+                                        foreach($butir as $row){
                                         ?>
-                                        <option><?php echo $row->nama; ?></option>
+                                        <option><?php echo $row->nama_butir; ?></option>
                                         <?php
                                         }
-                                        ?> -->
-                                        <!-- <optgroup label="Group Name">
-                                            <option>Nested option</option>
-                                        </optgroup> -->
+                                        ?>  -->
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Kelompok Dokumen
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis Dokumen
                                 </label>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <select class="form-control select2_ok" id="keldok" style="width: 100%;" data-placeholder="Pilih Jenis" name="kelompok_dokumen2">
+                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Jenis" name="jenis_dokumen">
                                         <option value="">Pilih</option>
-                                        <!-- <?php
-                                        foreach($kelompok_dok as $roww){
+                                         <?php
+                                        foreach($jenis_dokumen as $row){
                                         ?>
-                                        <option><?php echo $roww->nama; ?></option>
+                                        <option value="<?php echo $row->id_jenis ?>"><?php echo $row->jenis_dokumen; ?></option>
                                         <?php
                                         }
-                                        ?> -->
-                                        <!-- <optgroup label="Group Name">
+                                        ?> 
+                                         <!-- <optgroup label="Group Name">
                                             <option>Nested option</option>
-                                        </optgroup> -->
+                                        </optgroup>  -->
                                     </select>
                                 </div>
                             </div>
@@ -136,80 +131,24 @@
                                 </label>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                     <select class="form-control select2_ok" id="lingdok" style="width: 100%;" data-placeholder="Pilih Jenis" name="lingkup_dokumen">
-                                        <option value="">Pilih</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!--  <div class="form-group">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Author
-                                </label>
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Jenis Dokumen" name="authorisasi" required="required">
-                                        <?php
-                                        foreach($tampil_author as $row){
+                                    <option value="">Pilih</option>
+                                         <?php
+                                        foreach($lingkup_dokumen as $row){
                                         ?>
-                                        <option><?php echo $row->author; ?></option>
+                                        <option value="<?php echo $row->id_lingkup ?>"><?php echo $row->nama_lingkup; ?></option>
                                         <?php
                                         }
-                                        ?>
+                                        ?> 
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Lingkup
-                                </label>
-                                <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Jenis Dokumen" name="lingkup" required="required">
-                                        <?php
-                                        foreach($tampil_lingkup as $row){
-                                        ?>
-                                        <option><?php echo $row->lingkup; ?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div> -->
-                            <div class="form-group">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Dokumen
-                                </label>
-                                <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <textarea name="nama_dok" id="nama_dok" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
-                                </div>
-                            </div>
-                            
-                            
-                            <!-- <div class="form-group">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Valid
-                                </label>
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih range_tahun" name="tahun_valid" id="operasi1" onchange="cek_bunyi();" required="required">
-                                        <?php
-                                        foreach($range_thn as $row){
-                                        ?>
-                                        <option><?php echo $row->range_thn; ?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                        <option value="sembunyi">Lainnya</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group" id="akuhidding" style="display: none;">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Lainnya
-                                </label>
-                                <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input type="text" id="lainnya" name="lainnya" class="form-control col-md-7 col-xs-12">
-                                    <small>tidak harus diisi (jika tahun valid tidak tercantum diatas)</small>
-                                </div>
-                            </div>   -->
                             <div class="form-group">
                                 <label class="control-label col-md-2 col-sm-2 col-xs-12">Upload Berkas
                                 </label>
                                 <div class="col-md-7 col-sm-7 col-xs-12">
                                     <!--  <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required /> -->
                                     <input type="file" class="form-control" name="filepdf" id="upload" required />
-                                    <small> Ukuran file:  maksimum 5 MB</small>
+                                    <small> Ukuran file:  maksimum 10 MB</small>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

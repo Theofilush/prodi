@@ -48,9 +48,12 @@
               <div class="menu_section">
                 <h3>Dokumen</h3>
                 <ul class="nav side-menu">
-                  <!-- <li><a href="<?php echo site_url() ?>Home"><i class="fa fa-home"></i>Dashboard</a></li> -->
+                  <li><a href="<?php echo site_url() ?>Home"><i class="fa fa-home"></i>Dashboard</a></li>
                   <li><a href="<?php echo site_url() ?>Pengisian"><i class="fa fa-plus"></i>Tambah Baru</a></li>
                   <!-- <li><a href="<?php echo site_url() ?>Pengisian"><i class="fa fa-plus-circle"></i>Pengisian Dokumen</a></li> -->
+                  <?php
+                  if($buba == 'administrator' || $buba == 'kaprodi' || $buba == 'verifikator' ){
+                  ?>
                   <li><a><i class="fa fa-terminal"></i> Borang <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="<?php echo site_url() ?>borang/Standar1">Standar 1 - VMTS</a></li>
@@ -62,11 +65,15 @@
                     <li><a href="<?php echo site_url() ?>borang/Standar7">Standar 7 - Penelitian</a></li>
                     <li><a href="<?php echo site_url() ?>borang/Standar8">Standar 8 - Pengabdian Masyarakat</a></li>
                     <li><a href="<?php echo site_url() ?>borang/Standar9">Standar 9 - Luaran dan Capaian</a></li>
+                    <li><a href="<?php echo site_url() ?>borang/Standar10">Standar 10 - MBKM</a></li>
                   </ul>
                 </li>
+                <?php
+                }
+                ?>
                 <!-- <li><a href="<?php echo site_url() ?>Pencarian"><i class="fa fa-search"></i>Pencarian Dokumen</a></li> -->
                 <?php
-                if($buba == 'administrator'/*|| $buba == 'kaprodi'*/){
+                if($buba == 'administrator' || $buba == 'kaprodi'){
                 ?>
                 <li><a href="<?php echo site_url() ?>users"><i class="fa fa-users"></i>Users</a></li>
                 <?php

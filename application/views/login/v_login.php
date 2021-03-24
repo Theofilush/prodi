@@ -33,7 +33,7 @@
               } ?>
               <!-- <p style="color:red;text-align:center;padding: 10px;"><?php echo $this->session->flashdata('notification1')?></p> -->
               <div>
-                <input type="text" name="username" class="form-control" placeholder="NIDN / Email" required="" />
+                <input type="text" name="username" class="form-control" placeholder="Nim / Nik" required="" />
               </div>
               <div>
                 <input type="password" name="password" class="form-control" placeholder="Password" required="" />
@@ -66,7 +66,7 @@
               <h1>Create Account</h1>
               <p style="color:red;text-align:center;padding: 10px;"><?php echo $this->session->flashdata('notification')?></p>
               <div>
-                <input type="text" name="nidn" class="form-control" placeholder="NIDN" required="" />
+                <input type="text" name="nidn" class="form-control" placeholder="NIM / NIK" required="" />
               </div>
               <div>
                 <input type="email" name="email" class="form-control" placeholder="Email" required="" />
@@ -74,29 +74,13 @@
               <div>
                 <input type="text" name="username" id="username" class="form-control" placeholder="Nama Lengkap" required=""  onblur="perbesar()"/>
               </div>
-              <div>
-                
-                <select class="form-control" style="width: 100%; margin-bottom:20px;" data-placeholder="Pilih Prodi" name="prodi">
-                      <option>Pilih Program Studi</option>
-                      <?php 
-												foreach($tampil_prodi as $row){
-											?>  
-											  <option><?php echo $row->program_studi; ?></option>
-											<?php
-												 }
-											?>
-									</select>
-              </div>
+             
               <div>
                 <select class="form-control" style="width: 100%; margin-bottom:20px;" data-placeholder="Pilih Jabatan" name="jabatan">
                       <option>Pilih Jabatan</option>
-                      <?php 
-                        foreach($tampil_jabatan as $row){
-                      ?>  
-                        <option><?php echo $row->author; ?></option>
-                      <?php
-                         }
-                      ?>
+                      <option> mahasiswa </option>
+                      <option> dosen </option>
+                      
                   </select>
               </div>
               <div>

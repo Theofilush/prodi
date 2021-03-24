@@ -2023,11 +2023,12 @@ if (typeof NProgress != 'undefined') {
 					'columnDefs': [			            
 			            { width: '4%', targets: 0 },
 			            { width: '9%', targets: 1 },
-			            { width: '5%', targets: 2 },
+			            { width: '10%', targets: 2 },
 			            { width: '8%', targets: 3 },
 			            { width: '8%', targets: 4 },
 			            { width: '7%', targets: 5 },
-			            { width: '28%', targets: 6 }
+			            { width: '4%', targets: 6 },
+						{ width: '3%', targets: 7 }
 			        ],
 			        "pageLength": 25
 				});

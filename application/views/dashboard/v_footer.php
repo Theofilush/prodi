@@ -85,8 +85,8 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 	$("#kelompok").change(function(){
 		$.ajax({
 			type: "POST", // Method pengiriman data bisa dengan GET atau POST
-			url: "<?php echo base_url("Pengisian/listPerluasan"); ?>", // Isi dengan url/path file php yang dituju
-			data: {id_provinsi : $("#kelompok").val()}, // data yang akan dikirim ke file yang dituju
+			url: "<?php echo base_url("Pengisian/listButir"); ?>", // Isi dengan url/path file php yang dituju
+			data: {id_standar : $("#kelompok").val()}, // data yang akan dikirim ke file yang dituju
 			dataType: "json",
 			beforeSend: function(e) {
 				if(e && e.overrideMimeType) {
@@ -97,7 +97,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 				//$("#loading").hide(); // Sembunyikan loadingnya
 				// set isi dari combobox kota
 				// lalu munculkan kembali combobox kotanya
-				$("#per_dok").html(response.list_perdok).show();
+				$("#per_dok").html(response.list_perbutir).show();
 			},
 			error: function (xhr, ajaxOptions, thrownError) { // Ketika ada error
 			alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError); // Munculkan alert error
@@ -149,6 +149,8 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 	});
 	});
 });
+
+
 </script>
 </body>
 </html>

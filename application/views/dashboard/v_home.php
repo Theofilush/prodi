@@ -1,10 +1,34 @@
 <?php foreach($da as $row){$buba= $row->author;$bubi= $row->username; $profile= $row->username;}  ?>
 <div class="right_col" role="main">
+<?php
+if($this->session->flashdata('notification')){
+?>
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+<div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-check"></i> Notifikasi</h4>
+                <?php echo $this->session->flashdata('notification')?>
+              </div>
+</div>
+</div>
+<?php }
+elseif($this->session->flashdata('notification1')){
+?>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+  <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-check"></i> Notifikasi</h4>
+                <?php echo $this->session->flashdata('notification1')?>
+              </div>
+</div>
+</div>
+<?php }?>
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <div class="x_panel">
         <div class="x_title">
-          <p ><?php echo $this->session->flashdata('notification')?></p>
           <h4 class="">Welcome, <?php echo $profile;?></h4>
           <div class="clearfix"></div>
         </div>
@@ -23,7 +47,6 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <div class="x_panel">
         <div class="x_title">
-          <p ><?php echo $this->session->flashdata('notification')?></p>
           <h4 class="">Welcome, <?php echo $profile;?></h4>
           <div class="clearfix"></div>
         </div>
@@ -133,6 +156,17 @@
       <div class="x_panel">
         <div class="x_title">
           <h4>Data Standar 9 </h4>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <canvas id="mybarCharti"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h4>Data Standar 10 </h4>
           <div class="clearfix"></div>
         </div>
         <div class="x_content">

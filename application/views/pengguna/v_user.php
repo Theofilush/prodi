@@ -18,9 +18,9 @@
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>NIDN</th>
-                          <th>Nama Dosen</th>
-                          <th>Program Studi</th> 
+                          <th>NIM/NIK</th>
+                          <th>Nama</th>
+                          <th>Author</th>
                           <th>Email</th>
                           <th>Edit</th>   
                         </tr>
@@ -36,7 +36,7 @@
                           </td>
                           <td><b><?php echo $row->username; ?></b></td>
                           <td>                           
-                           <b><?php echo $row->prodi; ?></b>
+                           <b><?php echo $row->author; ?></b>
                           </td> 
                           <td>
                           <b><?php echo $row->email; ?></b>
@@ -87,7 +87,7 @@
                                 ?>
                               
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">NIDN
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">NIM/NIK
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <input type="text" id="nidn" name="nidn" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $rou->NIDN; ?>">
@@ -101,17 +101,17 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Program Studi</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Author</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Personil" name="prodi">                                            
-                                        <option><?php echo $rou->prodi; ?></option>
-                                            <?php 
-                                              foreach($tampil_prodi as $row){                                               
-                                            ?>  
-                                            <option><?php echo $row->program_studi; ?></option>                      
-                                            <?php
-                                            }
-                                            ?>   
+                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Personil" name="author">                                            
+                              
+                                            < <?php 
+                                                  foreach($tampil_jabatan as $row){
+                                 ?>  
+                        <option><?php echo $row->author; ?></option>
+                      <?php
+                         }
+                      ?> 
                                         </select>
                                     </div>
                                 </div>
@@ -182,17 +182,17 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Program Studi</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Author</label>
                                     <div class="col-md-3 col-sm-3 col-xs-12">                                    
-                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Prodi" name="prodi">                                            
-                                        <option></option>
-                                            <?php 
-                                              foreach($tampil_prodi as $row){                                               
-                                            ?>  
-                                            <option><?php echo $row->program_studi; ?></option>                      
-                                            <?php
-                                            }
-                                            ?>   
+                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Personil" name="author">                                            
+                              
+                                            < <?php 
+                                                  foreach($tampil_jabatan as $row){
+                                 ?>  
+                        <option><?php echo $row->author; ?></option>
+                      <?php
+                         }
+                      ?> 
                                         </select>
                                     </div>
                                 </div>

@@ -16,38 +16,36 @@ class Pengisian extends CI_Controller {
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun();
-		$jenisDOK = $this->M_dokumen->list_jns_dok();
-		$range_thn = $this->M_dokumen->list_range_thn();
-    $perluasan_dok = $this->M_dokumen->perluasan_dok();
-    $kelompok_dok = $this->M_dokumen->kelompok_dok();
-		$tampil_author = $this->M_dokumen->list_tampil_author();
-    $tampil_lingkup = $this->M_dokumen->list_tampil_lingkup();
+		$standar = $this->M_dokumen->standar();
+    $butir = $this->M_dokumen->butir();
+    $jenis_dokumen = $this->M_dokumen->jenis_dokumen();
+		// $tampil_author = $this->M_dokumen->list_tampil_author();
+    $lingkup_dokumen = $this->M_dokumen->lingkup_dokumen();
 
 		$dataHalaman = array(   
 		  'pagea'	=> "beranda",
       'da' => $kue, 
-		  'jnis_dok' => $jenisDOK,        
+		  'standar' => $standar,        
       'tampil_tahun'=> $query_tampil_tahun,
-      'perluasan_dok'=> $perluasan_dok,
-		  'kelompok_dok'=> $kelompok_dok,
-		  'range_thn'=>$range_thn,
-		  'tampil_author'=>$tampil_author,
-      'tampil_lingkup'=>$tampil_lingkup
+      'butir'=> $butir,
+		  'jenis_dokumen'=> $jenis_dokumen,
+		  // 'tampil_author'=>$tampil_author,
+      'lingkup_dokumen'=>$lingkup_dokumen
     );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);
 		$this->load->view('dokumen/v_pengisian',$dataHalaman);
 		$this->load->view('dashboard/v_footer');
 	}
-  public function listPerluasan(){
-    $id_provinsi = $this->input->post('id_provinsi');
-    $perdok = $this->M_dokumen->viewByProvinsi($id_provinsi);
+  public function listButir(){
+    $id_standar = $this->input->post('id_standar');
+    $perbutir = $this->M_dokumen->viewByButir($id_standar);
     
     $lists = "<option value=''>Pilih</option>";
     
-    foreach($perdok as $data){ $lists .= "<option value='".$data->id_permen."'>".$data->nama."</option>"; }
+    foreach($perbutir as $data){ $lists .= "<option value='".$data->id_butir."'>".$data->nama_butir."</option>"; }
     
-    $callback = array('list_perdok'=>$lists); // Masukan variabel lists tadi ke dalam array $callback dengan index array : list_kota
+    $callback = array('list_perbutir'=>$lists); // Masukan variabel lists tadi ke dalam array $callback dengan index array : list_kota
     echo json_encode($callback); // konversi varibael $callback menjadi JSON
   }
 public function listKelDok(){
@@ -76,7 +74,8 @@ public function listKelDok(){
 	 public function savedok(){     
       if($this->input->post('btnUpload') == "Upload"){
               $config['upload_path'] = './fileupload/';
-              $config['allowed_types'] = '*';
+              $config['allowed_types'] = 'pdf';
+              $config['max_size']      = '10000';
               $this->load->library('upload', $config);                
                         if ( ! $this->upload->do_upload('filepdf'))
                         {
@@ -88,63 +87,50 @@ public function listKelDok(){
                         {
                                 $data = array('upload_data' => $this->upload->data());                              
                         } 
-            $_tahun_terbit= $this->input->post('tahun_terbit', TRUE);
-            $_tt_smt = $this->input->post('tt_smt', TRUE);
-            $_kel_dok = $this->input->post('kelompok', TRUE);
-            $_perluasan_dokumen =  $this->input->post('perluasan_dokumen', TRUE);
-            $_kelompok_dokumen2 =  $this->input->post('kelompok_dokumen2', TRUE);
-            $_nama_dok = $this->input->post('nama_dok', TRUE);
+            $_tahun= $this->input->post('tahun', TRUE);
+            $_semester = $this->input->post('semester', TRUE);
+            $_standar = $this->input->post('standar', TRUE);
+            $_butir =  $this->input->post('butir', TRUE);
+            $_jenis_dokumen =  $this->input->post('jenis_dokumen', TRUE);
+            $_lingkup_dokumen = $this->input->post('lingkup_dokumen', TRUE);
             $_upload = $this->upload->data('file_name');  
             $_pic = $this->input->post('pic', TRUE);
-            
-            /*$_tahun_berakhir = $this->input->post('tahun_berakhir', TRUE);
-            $_tb_smt = $this->input->post('tb_smt', TRUE); 
-            $_nomor = $this->input->post('nomor', TRUE);
-            $_authorisasi = $this->input->post('authorisasi', TRUE);
-            $_tahun_valid = $this->input->post('tahun_valid', TRUE);
-            $_lainnya = $this->input->post('lainnya', TRUE); */           
+                  
 
-            if($_perluasan_dokumen == ""){
-						  $_perluasan_dokumen = "-";
-			      }
-             if($_kelompok_dokumen2 == ""){
-              $_kelompok_dokumen2 = "-";
-             }
+            // if($_perluasan_dokumen == ""){
+						//   $_perluasan_dokumen = "-";
+			      // }
+            //  if($_kelompok_dokumen2 == ""){
+            //   $_kelompok_dokumen2 = "-";
+            //  }
 
             /*digunakan untuk ketika input multiple standar
             $count=count($_kel_dok);
             for ($i=0; $i <=$count-1 ; $i++) {       
             } */           
               $data = array(
-                'tahun_terbit' => $_tahun_terbit,
-                'tt_semester' => $_tt_smt,
-                'standar' => $_kel_dok,    
-                'jenis_dokumen' => $_perluasan_dokumen,              
-                'lingkup' => $_kelompok_dokumen2,
-                'nama_dokumen'=> $_nama_dok,
+                'tahun' => $_tahun,
+                'semester' => $_semester,
+                'id_standar' => $_standar,    
+                'id_butir' => $_butir,              
+                'id_jenis' => $_jenis_dokumen,
+                'id_lingkup'=> $_lingkup_dokumen,
                 'file'=> $_upload,
                 'pic'=> $_pic
-                /*'no_dok'=> $_nomor,
-                'tahun_berakhir' => $_tahun_berakhir,
-                'tb_semester' => $_tb_smt*/
-                //'standar' => $_kel_dok[$i],           
-                //'tahun' => $_tahun,
-                //'author'=> $_authorisasi,
-                //'tahun_valid'=> $_tahun_valid,
-                //'lainnya'=> $_lainnya, 
               );
               $query= $this->M_dokumen->simpanDok($data);
+              
              
            if ($query) {            
             //echo '<body onLoad="window.close()"></body> ';
             //echo "<script> function ttup() { self.close; return false;} ttup(); </script> ";
             $this->session->set_flashdata('notification', 'Penambahan Dokumen Akreditasi Berhasil');
-            redirect(site_url('Pengisian'));
+            redirect(site_url('Home'));
             //print_r($stan);
            }
            else{
               $this->session->set_flashdata('notification1', 'Penambahan Dokumen Akreditasi Tidak Berhasil');
-              redirect(site_url('Pengisian'));
+              redirect(site_url('Home'));
               //echo "<b>Data Gagal DiMasukkan</b>";
            }
       }

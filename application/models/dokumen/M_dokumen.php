@@ -10,14 +10,9 @@ class M_dokumen extends CI_Model{
         $query = $this->db->get('tahun'); 
         return $query->result();
     }
-    function list_jns_dok(){
-        $this->db->order_by('id_jenis_dokumen', 'ASC');
-        $query = $this->db->get('kategori'); 
-        return $query->result();
-    }
-    function list_range_thn(){ 
-        $this->db->order_by('id_thn_valid', 'ASC');
-        $query = $this->db->get('tahun_valid'); 
+    function standar(){
+        $this->db->order_by('id_standar', 'ASC');
+        $query = $this->db->get('standar'); 
         return $query->result();
     }
     function tampil_jabatan(){
@@ -25,98 +20,136 @@ class M_dokumen extends CI_Model{
         $query = $this->db->get('hak_akses'); 
         return $query->result();
     }
-    function list_tampil_author(){
-        $this->db->order_by('id_author', 'ASC');
-        $query = $this->db->get('author'); 
-        return $query->result();
-    }
-    function list_tampil_lingkup(){
+    function lingkup_dokumen(){
     	$this->db->order_by('id_lingkup', 'ASC');
-        $query = $this->db->get('lingkup'); 
+        $query = $this->db->get('lingkup_dokumen'); 
         return $query->result();
     }
     function simpanDok($data){
-        return $this->db->insert($this->t_dokumen, $data);
+        return $this->db->insert("akreditasi", $data);
     } 
     function get_dokumen(){
         $query = $this->db->get($this->t_dokumen);
         return $query->result();
     } 
     function get_dokumen_1(){
-        $this->db->select('*,`kelompok_dokumen`.nama as nama_keldoku,`perluasan_dokumen`.nama as nama_perluasan');
-        $this->db->join($this->t_kelompok_dokumen, 't_dokumen.lingkup= kelompok_dokumen.kd_dok','INNER');
-        $this->db->join($this->t_perluasan_dokumen, 't_dokumen.jenis_dokumen= perluasan_dokumen.id_permen','INNER');   
-        $this->db->where('standar',1);
-        $hasil = $this->db->get($this->t_dokumen);
+        $this->db->select('*');
+        $this->db->join("standar", 'akreditasi.id_standar = standar.id_standar','INNER');
+        $this->db->join("butir", 'akreditasi.id_butir = butir.id_butir','INNER');
+        $this->db->join("lingkup_dokumen", 'akreditasi.id_lingkup = lingkup_dokumen.id_lingkup','INNER');
+        $this->db->join("jenis_dokumen", 'akreditasi.id_jenis = jenis_dokumen.id_jenis','INNER');
+        $this->db->where('akreditasi.id_standar',1);
+        $this->db->order_by('akreditasi.id_akreditasi');
+        $hasil = $this->db->get("akreditasi");
         return $hasil->result();
     }
     function get_dokumen_2(){
-        $this->db->select('*,`kelompok_dokumen`.nama as nama_keldoku,`perluasan_dokumen`.nama as nama_perluasan');
-        $this->db->join($this->t_kelompok_dokumen, 't_dokumen.lingkup= kelompok_dokumen.kd_dok','INNER');
-        $this->db->join($this->t_perluasan_dokumen, 't_dokumen.jenis_dokumen= perluasan_dokumen.id_permen','INNER');
-        $this->db->where('standar',2);
-        $hasil = $this->db->get($this->t_dokumen);
+        $this->db->select('*');
+        $this->db->join("standar", 'akreditasi.id_standar = standar.id_standar','INNER');
+        $this->db->join("butir", 'akreditasi.id_butir = butir.id_butir','INNER');
+        $this->db->join("lingkup_dokumen", 'akreditasi.id_lingkup = lingkup_dokumen.id_lingkup','INNER');
+        $this->db->join("jenis_dokumen", 'akreditasi.id_jenis = jenis_dokumen.id_jenis','INNER');
+        $this->db->where('akreditasi.id_standar',2);
+        $this->db->order_by('akreditasi.id_akreditasi');
+        $hasil = $this->db->get("akreditasi");
         return $hasil->result();
     }
     function get_dokumen_3(){
-        $this->db->select('*,`kelompok_dokumen`.nama as nama_keldoku,`perluasan_dokumen`.nama as nama_perluasan');
-        $this->db->join($this->t_kelompok_dokumen, 't_dokumen.lingkup= kelompok_dokumen.kd_dok','INNER');
-        $this->db->join($this->t_perluasan_dokumen, 't_dokumen.jenis_dokumen= perluasan_dokumen.id_permen','INNER');
-        $this->db->where('standar',3);
-        $hasil = $this->db->get($this->t_dokumen);
+        $this->db->select('*');
+        $this->db->join("standar", 'akreditasi.id_standar = standar.id_standar','INNER');
+        $this->db->join("butir", 'akreditasi.id_butir = butir.id_butir','INNER');
+        $this->db->join("lingkup_dokumen", 'akreditasi.id_lingkup = lingkup_dokumen.id_lingkup','INNER');
+        $this->db->join("jenis_dokumen", 'akreditasi.id_jenis = jenis_dokumen.id_jenis','INNER');
+        $this->db->where('akreditasi.id_standar',3);
+        $this->db->order_by('akreditasi.id_akreditasi');
+        $hasil = $this->db->get("akreditasi");
         return $hasil->result();
     }
     function get_dokumen_4(){
-        $this->db->select('*,`kelompok_dokumen`.nama as nama_keldoku,`perluasan_dokumen`.nama as nama_perluasan');
-        $this->db->join($this->t_kelompok_dokumen, 't_dokumen.lingkup= kelompok_dokumen.kd_dok','INNER');   
-        $this->db->join($this->t_perluasan_dokumen, 't_dokumen.jenis_dokumen= perluasan_dokumen.id_permen','INNER');
-        $this->db->where('standar',4);
-        $hasil = $this->db->get($this->t_dokumen);
+        $this->db->select('*');
+        $this->db->join("standar", 'akreditasi.id_standar = standar.id_standar','INNER');
+        $this->db->join("butir", 'akreditasi.id_butir = butir.id_butir','INNER');
+        $this->db->join("lingkup_dokumen", 'akreditasi.id_lingkup = lingkup_dokumen.id_lingkup','INNER');
+        $this->db->join("jenis_dokumen", 'akreditasi.id_jenis = jenis_dokumen.id_jenis','INNER');
+        $this->db->where('akreditasi.id_standar',4);
+        $this->db->order_by('akreditasi.id_akreditasi');
+        $hasil = $this->db->get("akreditasi");
         return $hasil->result();
     }
     function get_dokumen_5(){
-        $this->db->select('*,`kelompok_dokumen`.nama as nama_keldoku,`perluasan_dokumen`.nama as nama_perluasan');
-        $this->db->join($this->t_kelompok_dokumen, 't_dokumen.lingkup= kelompok_dokumen.kd_dok','INNER');   
-        $this->db->join($this->t_perluasan_dokumen, 't_dokumen.jenis_dokumen= perluasan_dokumen.id_permen','INNER');
-        $this->db->where('standar',5);
-        $hasil = $this->db->get($this->t_dokumen);
+        $this->db->select('*');
+        $this->db->join("standar", 'akreditasi.id_standar = standar.id_standar','INNER');
+        $this->db->join("butir", 'akreditasi.id_butir = butir.id_butir','INNER');
+        $this->db->join("lingkup_dokumen", 'akreditasi.id_lingkup = lingkup_dokumen.id_lingkup','INNER');
+        $this->db->join("jenis_dokumen", 'akreditasi.id_jenis = jenis_dokumen.id_jenis','INNER');
+        $this->db->where('akreditasi.id_standar',5);
+        $this->db->order_by('akreditasi.id_akreditasi');
+        $hasil = $this->db->get("akreditasi");
         return $hasil->result();
     }
     function get_dokumen_6(){
-        $this->db->select('*,`kelompok_dokumen`.nama as nama_keldoku,`perluasan_dokumen`.nama as nama_perluasan');
-        $this->db->join($this->t_kelompok_dokumen, 't_dokumen.lingkup= kelompok_dokumen.kd_dok','INNER');   
-        $this->db->join($this->t_perluasan_dokumen, 't_dokumen.jenis_dokumen= perluasan_dokumen.id_permen','INNER');
-        $this->db->where('standar',6);
-        $hasil = $this->db->get($this->t_dokumen);
+        $this->db->select('*');
+        $this->db->join("standar", 'akreditasi.id_standar = standar.id_standar','INNER');
+        $this->db->join("butir", 'akreditasi.id_butir = butir.id_butir','INNER');
+        $this->db->join("lingkup_dokumen", 'akreditasi.id_lingkup = lingkup_dokumen.id_lingkup','INNER');
+        $this->db->join("jenis_dokumen", 'akreditasi.id_jenis = jenis_dokumen.id_jenis','INNER');
+        $this->db->where('akreditasi.id_standar',6);
+        $this->db->order_by('akreditasi.id_akreditasi');
+        $hasil = $this->db->get("akreditasi");
         return $hasil->result();
     }
     function get_dokumen_7(){
-        $this->db->select('*,`kelompok_dokumen`.nama as nama_keldoku,`perluasan_dokumen`.nama as nama_perluasan');
-        $this->db->join($this->t_kelompok_dokumen, 't_dokumen.lingkup= kelompok_dokumen.kd_dok','INNER');   
-        $this->db->join($this->t_perluasan_dokumen, 't_dokumen.jenis_dokumen= perluasan_dokumen.id_permen','INNER');
-        $this->db->where('standar',7);
-        $hasil = $this->db->get($this->t_dokumen);
+        $this->db->select('*');
+        $this->db->join("standar", 'akreditasi.id_standar = standar.id_standar','INNER');
+        $this->db->join("butir", 'akreditasi.id_butir = butir.id_butir','INNER');
+        $this->db->join("lingkup_dokumen", 'akreditasi.id_lingkup = lingkup_dokumen.id_lingkup','INNER');
+        $this->db->join("jenis_dokumen", 'akreditasi.id_jenis = jenis_dokumen.id_jenis','INNER');
+        $this->db->where('akreditasi.id_standar',7);
+        $this->db->order_by('akreditasi.id_akreditasi');
+        $hasil = $this->db->get("akreditasi");
         return $hasil->result();
     }
     function get_dokumen_8(){
-        $this->db->select('*,`kelompok_dokumen`.nama as nama_keldoku,`perluasan_dokumen`.nama as nama_perluasan');
-        $this->db->join($this->t_kelompok_dokumen, 't_dokumen.lingkup= kelompok_dokumen.kd_dok','INNER');   
-        $this->db->join($this->t_perluasan_dokumen, 't_dokumen.jenis_dokumen= perluasan_dokumen.id_permen','INNER');
-        $this->db->where('standar',8);
-        $hasil = $this->db->get($this->t_dokumen);
+        $this->db->select('*');
+        $this->db->join("standar", 'akreditasi.id_standar = standar.id_standar','INNER');
+        $this->db->join("butir", 'akreditasi.id_butir = butir.id_butir','INNER');
+        $this->db->join("lingkup_dokumen", 'akreditasi.id_lingkup = lingkup_dokumen.id_lingkup','INNER');
+        $this->db->join("jenis_dokumen", 'akreditasi.id_jenis = jenis_dokumen.id_jenis','INNER');
+        $this->db->where('akreditasi.id_standar',8);
+        $this->db->order_by('akreditasi.id_akreditasi');
+        $hasil = $this->db->get("akreditasi");
         return $hasil->result();
     }
     function get_dokumen_9(){
-        $this->db->select('*,`kelompok_dokumen`.nama as nama_keldoku,`perluasan_dokumen`.nama as nama_perluasan');
-        $this->db->join($this->t_kelompok_dokumen, 't_dokumen.lingkup= kelompok_dokumen.kd_dok','INNER');   
-        $this->db->join($this->t_perluasan_dokumen, 't_dokumen.jenis_dokumen= perluasan_dokumen.id_permen','INNER');
-        $this->db->where('standar',9);
-        $hasil = $this->db->get($this->t_dokumen);
+        $this->db->select('*');
+        $this->db->join("standar", 'akreditasi.id_standar = standar.id_standar','INNER');
+        $this->db->join("butir", 'akreditasi.id_butir = butir.id_butir','INNER');
+        $this->db->join("lingkup_dokumen", 'akreditasi.id_lingkup = lingkup_dokumen.id_lingkup','INNER');
+        $this->db->join("jenis_dokumen", 'akreditasi.id_jenis = jenis_dokumen.id_jenis','INNER');
+        $this->db->where('akreditasi.id_standar',9);
+        $this->db->order_by('akreditasi.id_akreditasi');
+        $hasil = $this->db->get("akreditasi");
+        return $hasil->result();
+    }
+    function get_dokumen_10(){
+        $this->db->select('*');
+        $this->db->join("standar", 'akreditasi.id_standar = standar.id_standar','INNER');
+        $this->db->join("butir", 'akreditasi.id_butir = butir.id_butir','INNER');
+        $this->db->join("lingkup_dokumen", 'akreditasi.id_lingkup = lingkup_dokumen.id_lingkup','INNER');
+        $this->db->join("jenis_dokumen", 'akreditasi.id_jenis = jenis_dokumen.id_jenis','INNER');
+        $this->db->where('akreditasi.id_standar',10);
+        $this->db->order_by('akreditasi.id_akreditasi');
+        $hasil = $this->db->get("akreditasi");
         return $hasil->result();
     }
     function listEdit($id){
-        $this->db->where('id_dok',$id);
-        $hasil = $this->db->get($this->t_dokumen);
+        $this->db->select('*');
+        $this->db->join("standar", 'akreditasi.id_standar = standar.id_standar','INNER');
+        $this->db->join("butir", 'akreditasi.id_butir = butir.id_butir','INNER');
+        $this->db->join("lingkup_dokumen", 'akreditasi.id_lingkup = lingkup_dokumen.id_lingkup','INNER');
+        $this->db->join("jenis_dokumen", 'akreditasi.id_jenis = jenis_dokumen.id_jenis','INNER');
+        $this->db->where('id_akreditasi',$id);
+        $hasil = $this->db->get("akreditasi");
         return $hasil->result();
     }
     //menghitung total setiap standar ke grafik
@@ -240,26 +273,26 @@ class M_dokumen extends CI_Model{
         return $query->result();
     }
     function deleteDok_standar1($id){
-        $this->db->where('id_dok', $id);
-        $this->db->delete($this->t_dokumen);
+        $this->db->where('id_akreditasi', $id);
+        $this->db->delete("akreditasi");
     }
     function updateDok($data,$id){
-        $this->db->where('id_dok',$id);
-        return $this->db->update($this->t_dokumen,$data);
+        $this->db->where('id_akreditasi',$id);
+        return $this->db->update("akreditasi",$data);
     }
-    function perluasan_dok(){
-        $this->db->order_by('id_permen', 'ASC');
-        $query = $this->db->get('perluasan_dokumen'); 
+    function butir(){
+        $this->db->order_by('id_butir', 'ASC');
+        $query = $this->db->get('butir'); 
         return $query->result();
     }
-    function kelompok_dok(){
-        $this->db->order_by('kd_dok', 'ASC');
-        $query = $this->db->get('kelompok_dokumen'); 
+    function jenis_dokumen(){
+        $this->db->order_by('id_jenis', 'ASC');
+        $query = $this->db->get('jenis_dokumen'); 
         return $query->result();
     }
-    public function viewByProvinsi($id_provinsi){
-        $this->db->where('kd_std', $id_provinsi);
-        $result = $this->db->get('perluasan_dokumen')->result(); // Tampilkan semua data perluasan dokumen berdasarkan kode starndar
+    public function viewByButir($id_standar){
+        $this->db->where('id_standar', $id_standar);
+        $result = $this->db->get('butir')->result(); // Tampilkan semua data perluasan dokumen berdasarkan kode starndar
         return $result;
     }
     public function viewByProvinsi2($id_keldok){

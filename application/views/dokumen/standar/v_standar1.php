@@ -36,15 +36,16 @@
             <thead>
               <tr>
                 <th>No.</th>
-                <th>Tahun</th>
-                <th>Semester</th>
-                <th>Perluasan</th>
-                <th>Kategori</th>
-                <th>PIC</th>
-                <th>Nama Dokumen</th> 
-                <th>Tanggal Input</th>
+                <th>Tahun Akademik</th>
+                <th>Standar</th>
+                <th>Butir</th>
+                <th>Lingkup</th>
+                <th>Jenis Dokumen</th>
+                <th>PIC</th>  
+                <th>File</th>
+                <th>Presentase</th>
                 <?php
-                if($buba == 'administrator' || $buba == 'kaprodi'){
+                if($buba == 'administrator' || $buba == 'kaprodi' || $buba == 'verifikator'){
                 ?>
                 <th>Edit</th>
                 <?php
@@ -61,57 +62,55 @@
               <tr>
                 <td><?php echo $no++ ?></td>
                 <td>
-                  <?php echo $row->tahun_terbit; ?>
+                  <?php echo $row->tahun; ?> - <?php echo $row->semester; ?>
                 </td>
                 <td>
-                  <?php echo $row->tt_semester; ?>
+                  <?php echo $row->nama_standar;  ?>
                 </td>
                 <td>
-                  <?php echo $row->nama_perluasan;  ?>
+                  <?php echo $row->nama_butir;  ?>
                 </td>
                 <td>
-                  <?php echo $row->nama_keldoku;  ?>
+                  <?php echo $row->nama_lingkup;  ?>
+                </td>
+                <td>
+                  <?php echo $row->jenis_dokumen;  ?>
                 </td>
                 <td>
                   <?php echo $row->pic; ?>
                 </td>
                 <td>
-                  <a href="<?php echo site_url().'fileupload/'.$row->file  ?>" target="_blank"><?php echo $row->nama_dokumen;  ?> </a>
+                  <a href="<?php echo site_url().'fileupload/'.$row->file  ?>" target="_blank"><?php echo $row->file;  ?> </a>
                 </td>
                 <td>
-                  <?php echo $row->created_at; ?>
+                  Indikator: <?php echo $row->indikator; ?> %
+                  <br>
+                  Bobot: <?php echo $row->bobot; ?> %
+                  <br>
+                  Pencapaian: <?php echo $row->pencapaian; ?> %
+                  <br>
+                  Presentase: <?php echo $row->presentase; ?> %
+                  <br>
                 </td>
                 <?php
-                if($buba == 'administrator' || $buba == 'kaprodi'){
+                if($buba == 'administrator' || $buba == 'kaprodi' || $buba == 'verifikator'){
                 ?>
                 <td class="ketengah">
-                  <a href="" onclick="return DataEdit('<?php echo $row->id_dok; ?>')" class="btn btn-primary btn-xs btnnomargin"><i class="glyphicon glyphicon-pencil"></i></a>
-                  <!-- <?php  echo anchor_popup('Edit/index/'.$row->id_dok, '<i class="glyphicon glyphicon-pencil"></i>', array('target' => '','height'=>800,'class'=>"btn btn-primary btn-xs btnnomargin"));?> -->
-                  <a href="<?php echo site_url(); ?>borang/Standar1/deletedok/<?php echo $row->standar; ?>/<?php echo $row->id_dok; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
+                  <a href="" onclick="return DataEdit('<?php echo $row->id_akreditasi; ?>')" class="btn btn-primary btn-xs btnnomargin"><i class="glyphicon glyphicon-pencil"></i></a>
+                  <!-- <?php  echo anchor_popup('Edit/index/'.$row->id_akreditasi, '<i class="glyphicon glyphicon-pencil"></i>', array('target' => '','height'=>800,'class'=>"btn btn-primary btn-xs btnnomargin"));?> -->
+                  <a href="<?php echo site_url(); ?>borang/Standar1/deletedok/<?php echo $row->id_standar; ?>/<?php echo $row->id_akreditasi; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
                 </td>
                 <?php
                 }
                 ?>
                 <td class="ketengah">
                   <?php
-                  if($row->valid == "TIDAK") {
+                  if($row->valid == "Tidak") {
                   echo '<span class="font_color_red">'.$row->valid.'</span>';
-                  } elseif ($row->valid == "YA" ) {
+                  } elseif ($row->valid == "Ya" ) {
                   echo '<span class="font_color_green">'.$row->valid.'</span>';
                   }
                   ?>
-                  <!-- <?php
-                  if($buba == 'administrator' && ($row->valid == NULL)) {
-                  ?>
-                  <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/validasi/<?php echo $row->id_dok; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-check"></i></a>
-                  <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/tolakvalidasi/<?php echo $row->id_dok; ?>" class="btn btn-xs btn-hitam btnnomargin"><i class="fa fa-ban"></i></a>
-                  <?php
-                  } elseif ($buba == 'administrator' && ($row->valid ==  "TIDAK") ) {
-                  ?>
-                  <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/validasi/<?php echo $row->id_dok; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
-                  <?php
-                  }
-                  ?> -->
                 </td>
               </tr>
               <?php

@@ -15,12 +15,14 @@ class Users extends CI_Controller {
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan);
 		$query = $this->M_pengguna->listAll_user();
-		$tampil_prodi = $this->M_pengguna->tampilprodi();
+		$tampil_jabatan= $this->M_dokumen->tampil_jabatan(); 
+		// $tampil_prodi = $this->M_pengguna->tampilprodi();
  
 		$dataHalaman = array(   		
 			'query'=> $query,
-		  'da' => $kue,
-		  'tampil_prodi'=>$tampil_prodi
+		 	'da' => $kue,
+			'tampil_jabatan'=>$tampil_jabatan,
+		//   'tampil_prodi'=>$tampil_prodi
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);
@@ -31,7 +33,7 @@ class Users extends CI_Controller {
         if ($this->input->post('btnSimpan') == "Simpan") {
 		  $_nidn = $this->input->post('nidn', TRUE);
 		  $_username = $this->input->post('username', TRUE);
-		  $_prodi = $this->input->post('prodi', TRUE);
+		  $_author = $this->input->post('author', TRUE);
           $_email = $this->input->post('email', TRUE);
           $_password = $this->input->post('password', TRUE);
           $_cpassword = $this->input->post('cpassword', TRUE);
@@ -40,7 +42,7 @@ class Users extends CI_Controller {
             $data = array(
 			  'NIDN' => $_nidn,
 			  'username' => $_username,
-			  'prodi' => $_prodi,
+			  'author' => $_author,
               'email'=> $_email
             );
 			$query= $this->M_pengguna->simpanUpdateUser($data,$id);
@@ -82,7 +84,7 @@ class Users extends CI_Controller {
 			$_nidn = $this->input->post('nidn', TRUE);
 			$_email = $this->input->post('email', TRUE);
 			$_username = $this->input->post('username', TRUE);
-			$_prodi = $this->input->post('prodi', TRUE);
+			$_author = $this->input->post('author', TRUE);
 			$_password = $this->input->post('password', TRUE);
 			$_cpassword = $this->input->post('cpassword', TRUE);
 			if ($_password == $_cpassword) {
@@ -90,7 +92,7 @@ class Users extends CI_Controller {
 				  'NIDN' => $_nidn,
 				  'email' => $_email,
 				  'username' => $_username,
-				  'prodi'=> $_prodi,
+				  'author'=> $_author,
 				  'password'=> get_hash($_password),
 				  'author'=> 'dosen'
 				); 

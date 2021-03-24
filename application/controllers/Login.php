@@ -8,28 +8,17 @@ class Login extends CI_Controller {
 	}
 
 	public function index(){
-		$tampil_prodi = $this->M_login->tampil_prodi(); 
+		// $tampil_prodi = $this->M_login->tampil_prodi(); 
 		$tampil_jabatan= $this->M_dokumen->tampil_jabatan(); 
 		$data = array(
-			'tampil_prodi'=> $tampil_prodi,
+			// 'tampil_prodi'=> $tampil_prodi,
 			'tampil_jabatan'=>$tampil_jabatan
 		);
 		$this->load->view('login/v_login',$data);
 		if($this->session->userdata('status') == "login"){
 			redirect(site_url("borang/Standar1"));
 		}
-	} //$this->load->library('user_agent');
-	//redirect($this->agent->referrer());
-	//redirect(echo site_url('user_agent'));
-	//untuk membuat user baru kan harus register maka jgn lupa pake script ini 
-	/*public function reg(){
-		$data = array(
-			'nama' => $this->input->post('nama') ,
-			'email'=> $this->input->post('email'),
-			'password'=>get_hash($this->input->post('password'))
-		);
-	  return $this->db->insert('login',$data);
-	}*/
+	} 
 
 	function aksi_login(){
 		$username = $this->input->post('username');
@@ -48,7 +37,7 @@ class Login extends CI_Controller {
 				'status' => "login"
 				);
 				$this->session->set_userdata($data_session);	
-				redirect(site_url("borang/Standar1"),'refresh');				
+				redirect(site_url("Home"),'refresh');				
 			}
 			else{
 				$this->session->set_flashdata('notification','Maaf Password Salah.');
@@ -72,7 +61,7 @@ class Login extends CI_Controller {
 			$_nidn = $this->input->post('nidn', TRUE);
 			$_email = $this->input->post('email', TRUE);
 			$_username = $this->input->post('username', TRUE);
-			$_prodi = $this->input->post('prodi', TRUE);
+			//$_prodi = $this->input->post('prodi', TRUE);
 			$_jabatan = $this->input->post('jabatan', TRUE);
 			$_password = $this->input->post('password', TRUE);
 			$_cpassword = $this->input->post('cpassword', TRUE);
@@ -81,7 +70,7 @@ class Login extends CI_Controller {
 				  'NIDN' => $_nidn,
 				  'email' => $_email,
 				  'username' => $_username,
-				  'prodi'=> $_prodi,				  
+				 //'prodi'=> $_prodi,				  
 				  'password'=> get_hash($_password),
 				  'author'=> $_jabatan
 				);
