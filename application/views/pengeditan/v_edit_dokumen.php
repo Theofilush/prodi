@@ -82,14 +82,14 @@
                                         ?>   
                                     </select>
                                     </div>
-                                    <label class="control-label col-md-1 col-sm-1 col-xs-12">Semester
+                                    <!-- <label class="control-label col-md-1 col-sm-1 col-xs-12">Semester
                                     </label>
                                     <div class="col-md-2 col-sm-2 col-xs-5">
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="semester" required="required">                                            
                                         <option>Gasal</option>
                                         <option>Genap</option>
                                     </select>
-                                    </div>
+                                    </div> -->
                                      <div class="col-md-1 col-sm-1 col-xs-1">
                                     <a href="<?php echo site_url().'AddYear';  ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-plus"></i></a>
                                 </div>
@@ -166,8 +166,17 @@
                             <div class="col-md-2 col-sm-2 col-xs-11">
                                 <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="indikator" required="required">                                            
                                     <option value="<?php echo $rou->indikator ?>"><?php echo $rou->indikator; ?></option>
+                                    <option>1</option>
                                     <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
                                     <option>5</option>
+                                    <option>6</option>
+                                    <option>8</option>
+                                    <option>10</option>
+                                    <option>12</option>
+                                    <option>25</option>
+                                    <option>150</option>
                                 </select>
                             </div>
                             <label class=" control-label">%</label>
@@ -177,8 +186,14 @@
                             <div class="col-md-2 col-sm-2 col-xs-11">
                                 <select id="bobot" class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="bobot" required="required" onclick="hasilpresentase();">                                            
                                     <option value="<?php echo $rou->bobot ?>"><?php echo $rou->bobot; ?></option>
+                                    <option value="0.25">0.25</option>
                                     <option value="0.5">0.5</option>
+                                    <option value="0.75">0.75</option>
+                                    <option value="1">1</option>
+                                    <option value="1.5">1.5</option>
                                     <option value="2">2</option>
+                                    <option value="2.5">2.5</option>
+                                    <option value="2.75">2.75</option>
                                 </select>
                             </div>
                             <label class=" control-label">%</label>

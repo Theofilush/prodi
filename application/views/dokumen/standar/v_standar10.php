@@ -5,7 +5,7 @@
       <div class="x_panel">
         <div class="x_title">
           <p ><?php echo $this->session->flashdata('notification')?></p>
-          <h4 class="">Dokumen Borang Prodi - Standar 2 - Tata Pamong, Tata Kelola dan Kerja Sama</h4>
+          <h4 class="">Dokumen Borang Prodi - Standar 10 - MBKM</h4>
           <!-- <div class=" hidden-xs hidden-sm col-md-12">
             Urutkan:
             <button class="btn btn-default btn-sm" id="reset">Reset</button>
@@ -28,9 +28,9 @@
         <div class="x_content">
           <div class="row">
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin-bottom: 5px;">
-              <!-- <button class="btn btn-sm btn-info" onclick="javascript:DataAdd()"><span class="glyphicon glyphicon-plus"></span>  Data Baru</button>  -->
+              <!--  <button class="btn btn-sm btn-info" onclick="javascript:DataAdd()"><span class="glyphicon glyphicon-plus"></span>  Data Baru</button>  -->
             </div>
-            <a href="<?php echo site_url() ?>publikasi/PublikasiJurnal/exportexcel" class="btn btn-sm btn-success pull-right">Excel <i class="fa fa-file-excel-o"></i> </a>
+            <a href="<?php echo site_url() ?>publikasi/PublikasiJurnal/exportexcel" class="btn btn-success pull-right">Excel <i class="fa fa-file-excel-o"></i> </a>
           </div>
           <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
             <thead>
@@ -62,7 +62,7 @@
               <tr>
                 <td><?php echo $no++ ?></td>
                 <td>
-                  <?php echo $row->tahun; ?>
+                  <?php echo $row->tahun; ?> 
                 </td>
                 <td>
                   <?php echo $row->nama_standar;  ?>

@@ -380,6 +380,15 @@ class M_dokumen extends CI_Model{
         $this->db->order_by('kategori.jenis_dokumen','ASC'); 
         return $this->db->get()->result();
     }
+    function hitung_std10(){
+        $this->db->select('standar,`kategori`.jenis_dokumen,COUNT(*) as jumlah_dok');
+        $this->db->from($this->t_dokumen);  
+        $this->db->join($this->ktg, 't_dokumen.jenis_dokumen= kategori.jenis_dokumen','RIGHT');   
+        $this->db->where('standar',10);  
+        $this->db->group_by('kategori.jenis_dokumen'); 
+        $this->db->order_by('kategori.jenis_dokumen','ASC'); 
+        return $this->db->get()->result();
+    }
     function tampil_kategori(){ //query untuk menampilkan tahun pada form input
         $this->db->order_by('jenis_dokumen', 'ASC');
         $query = $this->db->get('kategori'); 
@@ -417,6 +426,104 @@ class M_dokumen extends CI_Model{
         $this->db->where('kode_kat_dok', $id_lingdok);
         $result = $this->db->get('lingkup')->result(); // Tampilkan semua data perluasan dokumen berdasarkan kode starndar
         return $result;
+    }
+
+    public function get_grafik_akreditasi(){
+        $this->db->select('id_standar, id_butir ,id_lingkup,id_jenis');
+        $this->db->from('akreditasi');  
+        $this->db->where('valid', 'Ya');  
+        return $this->db->get()->result();
+    }
+
+    public function get_grafik_random1(){
+        $this->db->select('id_standar, id_butir ,id_lingkup,id_jenis');
+        $this->db->from('akreditasi');  
+        $this->db->where('valid', 'Ya');
+        $this->db->where('id_standar', 1);  
+        $this->db->order_by('rand()');
+        $this->db->limit(1);    
+        return $this->db->get()->result_array();
+    }
+    public function get_grafik_random2(){
+        $this->db->select('id_standar, id_butir ,id_lingkup,id_jenis');
+        $this->db->from('akreditasi');  
+        $this->db->where('valid', 'Ya');
+        $this->db->where('id_standar', 2);
+        $this->db->order_by('rand()');
+        $this->db->limit(1);   
+        return $this->db->get()->result_array();
+    }
+    public function get_grafik_random3(){
+        $this->db->select('id_standar, id_butir ,id_lingkup,id_jenis');
+        $this->db->from('akreditasi');  
+        $this->db->where('valid', 'Ya');
+        $this->db->where('id_standar', 3);
+        $this->db->order_by('rand()');
+        $this->db->limit(1);   
+        return $this->db->get()->result_array();
+    }
+    public function get_grafik_random4(){
+        $this->db->select('id_standar, id_butir ,id_lingkup,id_jenis');
+        $this->db->from('akreditasi');  
+        $this->db->where('valid', 'Ya');
+        $this->db->where('id_standar', 4);
+        $this->db->order_by('rand()');
+        $this->db->limit(1);   
+        return $this->db->get()->result_array();
+    }
+    public function get_grafik_random5(){
+        $this->db->select('id_standar, id_butir ,id_lingkup,id_jenis');
+        $this->db->from('akreditasi');  
+        $this->db->where('valid', 'Ya');
+        $this->db->where('id_standar', 5);
+        $this->db->order_by('rand()');
+        $this->db->limit(1);   
+        return $this->db->get()->result_array();
+    }
+    public function get_grafik_random6(){
+        $this->db->select('id_standar, id_butir ,id_lingkup,id_jenis');
+        $this->db->from('akreditasi');  
+        $this->db->where('valid', 'Ya');
+        $this->db->where('id_standar', 6);
+        $this->db->order_by('rand()');
+        $this->db->limit(1);   
+        return $this->db->get()->result_array();
+    }
+    public function get_grafik_random7(){
+        $this->db->select('id_standar, id_butir ,id_lingkup,id_jenis');
+        $this->db->from('akreditasi');  
+        $this->db->where('valid', 'Ya');
+        $this->db->where('id_standar', 7);
+        $this->db->order_by('rand()');
+        $this->db->limit(1);   
+        return $this->db->get()->result_array();
+    }
+    public function get_grafik_random8(){
+        $this->db->select('id_standar, id_butir ,id_lingkup,id_jenis');
+        $this->db->from('akreditasi');  
+        $this->db->where('valid', 'Ya');
+        $this->db->where('id_standar', 8);
+        $this->db->order_by('rand()');
+        $this->db->limit(1);   
+        return $this->db->get()->result_array();
+    }
+    public function get_grafik_random9(){
+        $this->db->select('id_standar, id_butir ,id_lingkup,id_jenis');
+        $this->db->from('akreditasi');  
+        $this->db->where('valid', 'Ya');
+        $this->db->where('id_standar', 9);
+        $this->db->order_by('rand()');
+        $this->db->limit(1);   
+        return $this->db->get()->result_array();
+    }
+    public function get_grafik_random10(){
+        $this->db->select('id_standar, id_butir ,id_lingkup,id_jenis');
+        $this->db->from('akreditasi');  
+        $this->db->where('valid', 'Ya');
+        $this->db->where('id_standar', 10);
+        $this->db->order_by('rand()');
+        $this->db->limit(1);   
+        return $this->db->get()->result_array();
     }
 }
 ?>

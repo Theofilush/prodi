@@ -49,7 +49,13 @@
                 <h3>Dokumen</h3>
                 <ul class="nav side-menu">
                   <li><a href="<?php echo site_url() ?>Home"><i class="fa fa-home"></i>Dashboard</a></li>
+                  <?php
+                  if($buba == 'administrator' || $buba == 'kaprodi' || $buba == 'mahasiswa' || $buba == 'dosen' ){
+                  ?>
                   <li><a href="<?php echo site_url() ?>Pengisian"><i class="fa fa-plus"></i>Tambah Baru</a></li>
+                  <?php
+                }
+                ?>
                   <!-- <li><a href="<?php echo site_url() ?>Pengisian"><i class="fa fa-plus-circle"></i>Pengisian Dokumen</a></li> -->
                   <?php
                   if($buba == 'administrator' || $buba == 'kaprodi' || $buba == 'verifikator' ){

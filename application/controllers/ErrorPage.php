@@ -8,4 +8,10 @@ class ErrorPage extends CI_Controller {
 		//$this->load->view('dashboard/v_header');
 		$this->load->view('v_notfound');
 	}
+
+	public function filesize()
+	{
+		//$this->load->view('dashboard/v_header');
+		$this->load->view('v_filesize');
+	}
 }

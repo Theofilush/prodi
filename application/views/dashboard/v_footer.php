@@ -2,7 +2,7 @@
 <!-- footer content -->
 <footer>
 <div class="pull-right">
-	2018 - <a href="http://upj.ac.id">Universitas Pembangunan Jaya</a> | All Data Reserved
+	2020 - <a href="http://upj.ac.id">Program Studi Informatika</a> | All Data Reserved
 </div>
 <div class="clearfix"></div>
 </footer>

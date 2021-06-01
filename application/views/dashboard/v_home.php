@@ -47,13 +47,30 @@ elseif($this->session->flashdata('notification1')){
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <div class="x_panel">
         <div class="x_title">
-          <h4 class="">Data Presentase Keseluruhan Score </h4>
+          <h4 class="">Data Presentase Keseluruhan Skor </h4>
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
            <div class="row">
             <div class="col-md-offset-2 col-md-8">
                <canvas id="mybarChartProdi" width="1000" height="280"></canvas>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h4 class="">Grafik perhitungan data ke setiap cluster </h4>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+           <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+               <canvas id="kmeansChart" width="auto" height="auto"></canvas>
             </div>
           </div> 
         </div>

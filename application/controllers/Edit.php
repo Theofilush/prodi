@@ -43,7 +43,7 @@ class Edit extends CI_Controller {
 	public function updatedok(){
         if ($this->input->post('btnUpload') == "Upload") {
         	$_tahun= $this->input->post('tahun', TRUE);
-            $_semester = $this->input->post('semester', TRUE);
+            // $_semester = $this->input->post('semester', TRUE);
 			$_standar = $this->input->post('standar', TRUE);
             $_butir =  $this->input->post('butir', TRUE);
             $_jenis_dokumen =  $this->input->post('jenis_dokumen', TRUE);
@@ -58,7 +58,7 @@ class Edit extends CI_Controller {
 			
               $data = array(
 				'tahun' => $_tahun,
-                'semester' => $_semester,
+                // 'semester' => $_semester,
                 'id_standar' => $_standar,    
                 'id_butir' => $_butir,              
                 'id_jenis' => $_jenis_dokumen,

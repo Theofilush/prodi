@@ -62,7 +62,7 @@
               <tr>
                 <td><?php echo $no++ ?></td>
                 <td>
-                  <?php echo $row->tahun; ?> - <?php echo $row->semester; ?>
+                  <?php echo $row->tahun; ?>
                 </td>
                 <td>
                   <?php echo $row->nama_standar;  ?>

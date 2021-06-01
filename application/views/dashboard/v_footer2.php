@@ -28,6 +28,7 @@
     <script src="<?php echo base_url() ?>asett/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/Chart.js/dist/Chart.min.js"></script>
     <script src="<?php echo base_url() ?>asett/dist/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
         <?php
         foreach($data_grafik_prodi as $dat){   //menambpilkan kategori pada x-axis
@@ -207,6 +208,176 @@
     function DataEdit($urlku) {
       win2 = window.open("<?php echo base_url() ?>Edit/index/"+$urlku, "", "width=800, height=800, scrollbars, status");
     } 
+
+  // === include 'setup' then 'config' above ===
+
+    
+
+  const data1 = {
+  datasets: [{
+    label: 'Standar 1',
+    data: [
+      {x: 0.0, y: 0.1 }, 
+      {x: 1.0, y: 1.1},
+      {x: 2.0, y: 2.1}, 
+      {x: 3.0, y: 3.1}
+    ],
+    backgroundColor: 'rgb(255, 99, 132)'
+  }],
+};
+
+const DATA_COUNT = 7;
+// const NUMBER_CFG = {count: DATA_COUNT, rmin: 1, rmax: 1, min: 0, max: 100};
+
+const labels = 4;
+
+const data = {
+  // labels: labels,
+  datasets: [
+    {
+      label: 'Cluster 1',
+      data: [
+        <?php 
+          foreach($rumus1 as $rum1){
+            echo '{x: '.$rum1.', y: 1},';
+          } 
+        ?>
+      ],
+      borderColor: 'rgb(255, 99, 132)',
+      backgroundColor: 'rgb(255, 99, 132)',
+    },
+    {
+      label: 'Cluster 2',
+      data: [
+        <?php 
+          foreach($rumus2 as $rum2){
+            echo '{x: '.$rum2.', y: 2},';
+          } 
+        ?>
+      ],
+      borderColor: 'rgb(255, 200, 132)',
+      backgroundColor:'rgb(255, 200, 132)',
+    },
+    {
+      label: 'Cluster 3',
+      data: [
+        <?php 
+          foreach($rumus3 as $rum3){
+            echo '{x: '.$rum3.', y: 3},';
+          } 
+        ?>
+      ],
+      borderColor: 'rgb(50, 147, 168)',
+      backgroundColor:'rgb(50, 147, 168)',
+    },
+    {
+      label: 'Cluster 4',
+      data: [
+        <?php 
+          foreach($rumus4 as $rum4){
+            echo '{x: '.$rum4.', y: 4},';
+          } 
+        ?>
+      ],
+      borderColor: 'rgb(50, 78, 168)',
+      backgroundColor:'rgb(50, 78, 168)',
+    },
+    {
+      label: 'Cluster 5',
+      data: [
+        <?php 
+          foreach($rumus5 as $rum5){
+            echo '{x: '.$rum5.', y: 5},';
+          } 
+        ?>
+      ],
+      borderColor: 'rgb(50, 168, 85)',
+      backgroundColor:'rgb(50, 168, 85)',
+    },
+    {
+      label: 'Cluster 6',
+      data: [
+        <?php 
+          foreach($rumus6 as $rum6){
+            echo '{x: '.$rum6.', y: 6},';
+          } 
+        ?>
+      ],
+      borderColor: 'rgb(50, 168, 139)',
+      backgroundColor:'rgb(50, 168, 139)',
+    },
+    {
+      label: 'Cluster 7',
+      data: [
+        <?php 
+          foreach($rumus7 as $rum7){
+            echo '{x: '.$rum7.', y: 7},';
+          } 
+        ?>
+      ],
+      borderColor: 'rgb(168, 50, 121)',
+      backgroundColor:'rgb(168, 50, 121)',
+    },
+    {
+      label: 'Cluster 8',
+      data: [
+        <?php 
+          foreach($rumus8 as $rum8){
+            echo '{x: '.$rum8.', y: 8},';
+          } 
+        ?>
+      ],
+      borderColor: 'rgb(168, 50, 95)',
+      backgroundColor:'rgb(168, 50, 95)',
+    },
+    {
+      label: 'Cluster 9',
+      data: [
+        <?php 
+          foreach($rumus9 as $rum9){
+            echo '{x: '.$rum9.', y: 9},';
+          } 
+        ?>
+      ],
+      borderColor: 'rgb(168, 74, 50)',
+      backgroundColor:'rgb(168, 74, 50)',
+    },
+    {
+      label: 'Cluster 10',
+      data: [
+        <?php 
+          foreach($rumus10 as $rum10){
+            echo '{x: '.$rum10.', y: 10},';
+          } 
+        ?>
+      ],
+      borderColor: 'rgb(255, 52, 0)',
+      backgroundColor:'rgb(255, 52, 0)',
+    }
+  ]
+};
+  
+const config = {
+  type: 'scatter',
+  data: data,
+  options: {
+    responsive: true,
+    // scales: {
+    //   x: {
+    //     type: 'linear',
+    //     position: 'bottom'
+    //   }
+    // }
+  }
+};
+  var myChart = new Chart(
+      document.getElementById('kmeansChart'),
+    config
+  );
+
+
+
+
     if ($('#mybarChartProdi').length){
         var ctx = document.getElementById("mybarChartProdi");
         var mybarChart = new Chart(ctx, {
@@ -234,6 +405,9 @@
         }
         });       
       }
+
+
+
       if ($('#mybarCharta').length ){
         var ctx = document.getElementById("mybarCharta");
         var mybarChart = new Chart(ctx, {

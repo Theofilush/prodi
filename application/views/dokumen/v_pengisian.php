@@ -63,14 +63,14 @@
                                         ?>
                                     </select>
                                 </div>
-                                <label class="control-label col-md-1 col-sm-1 col-xs-12">Semester
+                                <!-- <label class="control-label col-md-1 col-sm-1 col-xs-12">Semester
                                 </label>
                                 <div class="col-md-2 col-sm-2 col-xs-12">
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="semester" required="required">
                                         <option>Gasal</option>
                                         <option>Genap</option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="col-md-1 col-sm-1 col-xs-1">
                                     <a href="<?php echo site_url().'AddYear';  ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-plus"></i></a>
                                 </div>
