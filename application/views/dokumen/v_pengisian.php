@@ -71,9 +71,9 @@
                                         <option>Genap</option>
                                     </select>
                                 </div> -->
-                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                <!-- <div class="col-md-1 col-sm-1 col-xs-1">
                                     <a href="<?php echo site_url().'AddYear';  ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-plus"></i></a>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2 col-sm-2 col-xs-12">Standar

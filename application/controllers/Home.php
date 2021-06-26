@@ -52,18 +52,18 @@ class Home extends CI_Controller {
 			array_push($arrJenis, $row->id_jenis);
 		}
 		for($i = 0; $i <= count($arrStandar) -1; $i++){
-			// if(is_nan(SQRT(($arrStandar[$i]-$data_random1[0]['id_standar'])^2 + ($arrButir[$i]-$data_random1[0]['id_butir'])^2 + ($arrLingkup[$i]-$data_random1[0]['id_lingkup'])^2 + ($arrJenis[$i]-$data_random1[0]['id_jenis'])^2))){
-			if(is_nan(SQRT(($arrStandar[$i]-1)^2 + ($arrButir[$i]-1)^2 + ($arrLingkup[$i]-3)^2 + ($arrJenis[$i]-2)^2))){
+			if(is_nan(SQRT(($arrStandar[$i]-$data_random1[0]['id_standar'])^2 + ($arrButir[$i]-$data_random1[0]['id_butir'])^2 + ($arrLingkup[$i]-$data_random1[0]['id_lingkup'])^2 + ($arrJenis[$i]-$data_random1[0]['id_jenis'])^2))){
+			// if(is_nan(SQRT(($arrStandar[$i]-1)^2 + ($arrButir[$i]-1)^2 + ($arrLingkup[$i]-3)^2 + ($arrJenis[$i]-2)^2))){
 				$rumus1[]=0;
 			}
 			else{
 				$rumus1[] = number_format( SQRT(($arrStandar[$i]-$data_random1[0]['id_standar'])^2 + ($arrButir[$i]-$data_random1[0]['id_butir'])^2 + ($arrLingkup[$i]-$data_random1[0]['id_lingkup'])^2 + ($arrJenis[$i]-$data_random1[0]['id_jenis'])^2), 3);
 			}
 			// print_r($arrButir[$i]);
-			echo  SQRT(($arrStandar[$i]-$data_random1[0]['id_standar'])^2 + ($arrButir[$i]-$data_random1[0]['id_butir'])^2 + ($arrLingkup[$i]-$data_random1[0]['id_lingkup'])^2 + ($arrJenis[$i]-$data_random1[0]['id_jenis'])^2);
-			echo '<br>'; 
+			// echo  SQRT(($arrStandar[$i]-$data_random1[0]['id_standar'])^2 + ($arrButir[$i]-$data_random1[0]['id_butir'])^2 + ($arrLingkup[$i]-$data_random1[0]['id_lingkup'])^2 + ($arrJenis[$i]-$data_random1[0]['id_jenis'])^2);
+			// echo '<br>'; 
 		}
-		exit();
+		// exit();
 		for($i = 0; $i <= count($arrStandar) -1; $i++){
 			if(is_nan(SQRT(($arrStandar[$i]-$data_random2[0]['id_standar'])^2 + ($arrButir[$i]-$data_random2[0]['id_butir'])^2 + ($arrLingkup[$i]-$data_random2[0]['id_lingkup'])^2 + ($arrJenis[$i]-$data_random2[0]['id_jenis'])^2))){
 				$rumus2[]=0;
@@ -135,6 +135,7 @@ class Home extends CI_Controller {
 			else{
 				$rumus10[] = number_format( SQRT(($arrStandar[$i]-$data_random10[0]['id_standar'])^2 + ($arrButir[$i]-$data_random10[0]['id_butir'])^2 + ($arrLingkup[$i]-$data_random10[0]['id_lingkup'])^2 + ($arrJenis[$i]-$data_random10[0]['id_jenis'])^2), 3);
 			}
+			
 		}
 
 		// foreach($rumus2 as $row){

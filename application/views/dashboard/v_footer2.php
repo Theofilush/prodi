@@ -3,7 +3,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            2018 - <a href="http://upj.ac.id">Universitas Pembangunan Jaya</a> | All Data Reserved
+            2021 - <a href="http://upj.ac.id">Program Studi Informatika</a>
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -29,6 +29,7 @@
     <script src="<?php echo base_url() ?>asett/plugins/Chart.js/dist/Chart.min.js"></script>
     <script src="<?php echo base_url() ?>asett/dist/js/custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 
         <?php
         foreach($data_grafik_prodi as $dat){   //menambpilkan kategori pada x-axis
@@ -235,127 +236,148 @@ const data = {
   // labels: labels,
   datasets: [
     {
-      label: 'Cluster 1',
+      label: 'Standar 1',
       data: [
         <?php 
+          $i = 1;
           foreach($rumus1 as $rum1){
-            echo '{x: '.$rum1.', y: 1},';
+            echo '{x: '.$rum1.', y: '.$i.'},';
+            $i+=0.2;
           } 
         ?>
       ],
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(35, 232, 153, 1)',
+      backgroundColor: 'rgb(35, 232, 153, 1)',
     },
     {
-      label: 'Cluster 2',
+      label: 'Standar 2',
       data: [
         <?php 
+          $i = 2;
           foreach($rumus2 as $rum2){
-            echo '{x: '.$rum2.', y: 2},';
+            echo '{x: '.$rum2.', y: '.$i.'},';
+            $i+=0.2;
           } 
         ?>
       ],
-      borderColor: 'rgb(255, 200, 132)',
-      backgroundColor:'rgb(255, 200, 132)',
+      borderColor: 'rgb(55, 215, 160, 1)',
+      backgroundColor:'rgb(55, 215, 160, 1)',
     },
     {
-      label: 'Cluster 3',
+      label: 'Standar 3',
       data: [
-        <?php 
+        <?php
+        $i = 3; 
           foreach($rumus3 as $rum3){
-            echo '{x: '.$rum3.', y: 3},';
+            echo '{x: '.$rum3.', y: '.$i.'},';
+            $i+=0.2;
           } 
         ?>
       ],
-      borderColor: 'rgb(50, 147, 168)',
-      backgroundColor:'rgb(50, 147, 168)',
+      borderColor: 'rgb(76, 198, 168, 1)',
+      backgroundColor:'rgb(76, 198, 168, 1)',
     },
     {
-      label: 'Cluster 4',
+      label: 'Standar 4',
       data: [
         <?php 
+        $i = 4; 
           foreach($rumus4 as $rum4){
-            echo '{x: '.$rum4.', y: 4},';
+            echo '{x: '.$rum4.', y: '.$i.'},';
+            $i+=0.2;
           } 
         ?>
       ],
-      borderColor: 'rgb(50, 78, 168)',
-      backgroundColor:'rgb(50, 78, 168)',
+      borderColor: 'rgb(96, 181, 175, 1)',
+      backgroundColor:'rgb(96, 181, 175, 1)',
     },
     {
-      label: 'Cluster 5',
+      label: 'Standar 5',
       data: [
-        <?php 
+        <?php
+        $i = 5;  
           foreach($rumus5 as $rum5){
-            echo '{x: '.$rum5.', y: 5},';
+            echo '{x: '.$rum5.', y: '.$i.'},';
+            $i+=0.2;
           } 
         ?>
       ],
-      borderColor: 'rgb(50, 168, 85)',
-      backgroundColor:'rgb(50, 168, 85)',
+      borderColor: 'rgb(116, 164, 183, 1)',
+      backgroundColor:'rgb(116, 164, 183, 1)',
     },
     {
-      label: 'Cluster 6',
+      label: 'Standar 6',
       data: [
         <?php 
+        $i = 6; 
           foreach($rumus6 as $rum6){
-            echo '{x: '.$rum6.', y: 6},';
+            echo '{x: '.$rum6.', y: '.$i.'},';
+            $i+=0.2;
           } 
         ?>
       ],
-      borderColor: 'rgb(50, 168, 139)',
-      backgroundColor:'rgb(50, 168, 139)',
+      borderColor: 'rgb(137, 146, 190, 1)',
+      backgroundColor:'rgb(137, 146, 190, 1)',
     },
     {
-      label: 'Cluster 7',
+      label: 'Standar 7',
       data: [
         <?php 
+        $i = 7; 
           foreach($rumus7 as $rum7){
-            echo '{x: '.$rum7.', y: 7},';
+            echo '{x: '.$rum7.', y: '.$i.'},';
+            $i+=0.2;
           } 
         ?>
       ],
-      borderColor: 'rgb(168, 50, 121)',
-      backgroundColor:'rgb(168, 50, 121)',
+      borderColor: 'rgb(157, 129, 198, 1)',
+      backgroundColor:'rgb(157, 129, 198, 1)',
     },
     {
-      label: 'Cluster 8',
+      label: 'Standar 8',
       data: [
         <?php 
+        $i = 8; 
           foreach($rumus8 as $rum8){
-            echo '{x: '.$rum8.', y: 8},';
+            echo '{x: '.$rum8.', y: '.$i.'},';
+            $i+=0.2;
           } 
         ?>
       ],
-      borderColor: 'rgb(168, 50, 95)',
-      backgroundColor:'rgb(168, 50, 95)',
+      borderColor: 'rgb(177, 112, 205, 1)',
+      backgroundColor:'rgb(177, 112, 205, 1)',
     },
     {
-      label: 'Cluster 9',
+      label: 'Standar 9',
       data: [
         <?php 
+        $i = 9; 
           foreach($rumus9 as $rum9){
-            echo '{x: '.$rum9.', y: 9},';
+            echo '{x: '.$rum9.', y: '.$i.'},';
+            $i+=0.2;
           } 
         ?>
       ],
-      borderColor: 'rgb(168, 74, 50)',
-      backgroundColor:'rgb(168, 74, 50)',
+      borderColor: 'rgb(198, 95, 213, 1)',
+      backgroundColor:'rgb(198, 95, 213, 1)',
     },
     {
-      label: 'Cluster 10',
+      label: 'Standar 10',
       data: [
         <?php 
+        $i = 10; 
           foreach($rumus10 as $rum10){
-            echo '{x: '.$rum10.', y: 10},';
+            echo '{x: '.$rum10.', y: '.$i.'},';
+            $i+=0.2;
           } 
         ?>
       ],
-      borderColor: 'rgb(255, 52, 0)',
-      backgroundColor:'rgb(255, 52, 0)',
+      borderColor: 'rgb(218, 78, 220, 1)',
+      backgroundColor:'rgb(218, 78, 220, 1)',
     }
   ]
 };
+
   
 const config = {
   type: 'scatter',

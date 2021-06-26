@@ -25,7 +25,7 @@
         <div class="animate form login_form">
           <section class="login_content">
             <form action="<?php echo site_url('login/aksi_login'); ?>" method="post">
-              <h1>Prodi</h1>
+              <h1>Command Center</h1>
               <img src="<?php echo base_url() ?>asett/images/logo.png">
               <p style="color:red;text-align:center;padding: 10px;"><?php echo $this->session->flashdata('notification')?></p>
               <?php if (!empty($this->session->flashdata('notification1'))) {
